@@ -1,0 +1,148 @@
+---
+layout: layouts/base.njk
+bodyClass: sida-hem
+---
+{% import "partials/macros.njk" as m %}
+
+<section class="hero">
+  <div class="hero__text">
+    <p class="handskrift hero__halsning"><span lang="hu">Szia!</span> <span lang="fr">Bonjour!</span> Hej!</p>
+    <h1 class="hero__rubrik">Små <span class="klotter">konstverk</span> som går att äta.</h1>
+    <p class="ingress">Jag heter Eszter Kunszt – konditor och bagare med ungerska rötter och en förkärlek för det franska konditoriets finlir. Jag bakar tårtor och bakverk där varje lager, glasyr och sockerblomma görs för hand, med samma känsla som när jag målar.</p>
+    <div class="knapprad">
+      <a class="knapp" href="/bestall/">Beställ en tårta</a>
+      <a class="knapp knapp--sekundar" href="/skapelser/">Se mina skapelser</a>
+    </div>
+  </div>
+
+  <div class="hero__bild">
+    <svg class="hero__bricka" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+      <path d="{% scallop 200, 200, 176, 28, 7 %}" fill="#FFF9EF" stroke="#3B2A25" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="200" cy="200" r="150" fill="#BFE3D0" stroke="#3B2A25" stroke-width="3"/>
+      <circle cx="200" cy="200" r="139" fill="none" stroke="#3B2A25" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+      <path id="textring" d="M200,46 a154,154 0 1,1 -0.1,0" fill="none"/>
+      <text class="hero__ring"><textPath href="#textring" textLength="960" lengthAdjust="spacing">Cukrászda ✿ Pâtisserie ✿ Konditori ✿ Cukrászda ✿ Pâtisserie ✿ Konditori ✿</textPath></text>
+    </svg>
+    <button class="gas" type="button" aria-label="Klappa konditorgåsen" data-gas>
+      <img src="/assets/img/gas-560.webp" width="357" height="560" alt="Eszters maskot: en vit gås med röd kockmössa som provsmakar med en sked">
+    </button>
+    <p class="pratbubbla" data-pratbubbla aria-live="polite">Szia!</p>
+    <p class="hero__anteckning handskrift" aria-hidden="true">
+      <svg class="hero__pil" viewBox="0 0 80 50"><path d="M74,6 C58,4 34,10 16,34 M16,34 L16,20 M16,34 L30,32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      konditorgåsen.<br>provsmakar allt.
+    </p>
+    <svg class="blomma blomma--1" aria-hidden="true"><use href="#forgatmigej"/></svg>
+    <svg class="blomma blomma--2" aria-hidden="true"><use href="#forgatmigej"/></svg>
+    <svg class="blomma blomma--3" aria-hidden="true"><use href="#forgatmigej"/></svg>
+    <svg class="gnista gnista--1" aria-hidden="true"><use href="#gnista"/></svg>
+    <svg class="gnista gnista--2" aria-hidden="true"><use href="#gnista"/></svg>
+  </div>
+</section>
+
+<div class="band-ram" aria-hidden="true">
+<div class="band">
+  <div class="band__spar">
+    {%- for i in range(0, 2) %}
+    <span>Dobostorta</span><span>Paris-Brest</span><span>Esterházy</span><span>Saint-Honoré</span><span>Macarons</span><span>Bröllopstårtor</span><span>Entremets</span><span>Croissanter</span><span>Surdeg</span><span>Rigó Jancsi</span>
+    {%- endfor %}
+  </div>
+</div>
+</div>
+
+<section class="sektion" aria-labelledby="skapelser-rubrik">
+  <div class="sektion__huvud">
+    <p class="handskrift sektion__kicker">ur skissboken &amp; ugnen</p>
+    <h2 id="skapelser-rubrik">Senaste <span class="klotter klotter--bla">skapelserna</span></h2>
+  </div>
+  <div class="polaroider">
+    {%- for item in skapelser.items | where("featured", true) | limit(3) %}
+    {{ m.polaroid(item) }}
+    {%- endfor %}
+  </div>
+  <p class="sektion__mer"><a class="lank-pil" href="/skapelser/">Se hela galleriet <svg class="ikon" aria-hidden="true"><use href="#ikon-pil"/></svg></a></p>
+</section>
+
+<section class="sektion sektion--rosa" aria-labelledby="process-rubrik">
+  <div class="sektion__huvud">
+    <p class="handskrift sektion__kicker">så går det till</p>
+    <h2 id="process-rubrik">Från skiss till tårta</h2>
+    <p class="sektion__ingress">Varje beställning börjar som en idé – och ofta som en liten målning. Konditori är konst du kan äta, så jag tar det precis lika seriöst (nästan).</p>
+  </div>
+  <ol class="steg">
+    <li class="steg__punkt">
+      <h3>Berätta om din dröm</h3>
+      <p>Tillfälle, smaker, färger och antal gäster. Ju mer du berättar, desto roligare blir det.</p>
+    </li>
+    <li class="steg__punkt">
+      <h3>Jag skissar ett förslag</h3>
+      <p>Med penna eller akvarell, tillsammans med ett prisförslag. Vi justerar tills det känns rätt.</p>
+    </li>
+    <li class="steg__punkt">
+      <h3>Jag bakar – från grunden</h3>
+      <p>Riktigt smör, riktig vanilj och riktig choklad. Inga genvägar, inga pulverkrämer.</p>
+    </li>
+    <li class="steg__punkt">
+      <h3>Du njuter</h3>
+      <p>Och taggar mig gärna på Instagram. Gåsen blir så glad.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="sektion om-teaser" aria-labelledby="om-rubrik">
+  <div class="om-teaser__ram">
+    <div class="oval-ram ton-forgatmigej">
+      {%- if site.portrait %}
+      <img src="{{ site.portrait }}" alt="Eszter Kunszt" loading="lazy">
+      {%- else %}
+      {% include "illustrationer/palett.svg" %}
+      {%- endif %}
+    </div>
+    <svg class="tulipan tulipan--vanster" aria-hidden="true"><use href="#tulipan"/></svg>
+    <svg class="tulipan tulipan--hoger" aria-hidden="true"><use href="#tulipan"/></svg>
+  </div>
+  <div class="om-teaser__text">
+    <p class="handskrift sektion__kicker">konst, lera &amp; smörkräm</p>
+    <h2 id="om-rubrik">Ungerska rötter, franska finesser</h2>
+    <p>Jag kommer från Ungern, där <i lang="hu">cukrászdán</i> – konditoriet – är en självklar del av vardagen och en bit Dobostorta på eftermiddagen nästan är en tradition. I dag blandar jag de ungerska klassikerna med det franska konditoriets precision.</p>
+    <p>När jag inte står vid bänken målar jag eller formar små figurer i lufttorkande lera. För mig är det samma sak: att skapa något vackert med händerna.</p>
+    <a class="knapp knapp--sekundar" href="/om/">Mer om mig</a>
+  </div>
+</section>
+
+{%- if collections.recept.length %}
+<section class="sektion sektion--mint" aria-labelledby="recept-rubrik">
+  <div class="sektion__huvud">
+    <p class="handskrift sektion__kicker">från mitt kök till ditt</p>
+    <h2 id="recept-rubrik">Färska recept</h2>
+  </div>
+  <div class="receptlista">
+    {%- for recept in collections.recept | limit(3) %}
+    {{ m.receptkort(recept) }}
+    {%- endfor %}
+  </div>
+  <p class="sektion__mer"><a class="lank-pil" href="/recept/">Alla recept <svg class="ikon" aria-hidden="true"><use href="#ikon-pil"/></svg></a></p>
+</section>
+{%- endif %}
+
+<section class="sektion" aria-labelledby="insta-rubrik">
+  <div class="sektion__huvud">
+    <p class="handskrift sektion__kicker">bakom kulisserna</p>
+    <h2 id="insta-rubrik">Följ med på <span class="klotter">Instagram</span></h2>
+    <p class="sektion__ingress">Mjöl på golvet, misslyckade makroner och en och annan triumf. <a href="https://www.instagram.com/{{ site.instagram }}/" rel="me noopener">@{{ site.instagram }}</a></p>
+  </div>
+  <ul class="insta-rutnat">
+    {%- for post in instagram.posts | limit(6) %}
+    <li class="ton-{{ post.tone }}">
+      <a href="{{ post.url or ('https://www.instagram.com/' + site.instagram + '/') }}" rel="noopener">
+        <span class="visuellt-dold">Instagram-inlägg {{ loop.index }}</span>
+        {{ m.bild(post) }}
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  <p class="sektion__mer">
+    <a class="knapp" href="https://www.instagram.com/{{ site.instagram }}/" rel="me noopener"><svg class="ikon" aria-hidden="true"><use href="#ikon-instagram"/></svg> Följ @{{ site.instagram }}</a>
+  </p>
+</section>
+
+{% include "partials/bestall-cta.njk" %}

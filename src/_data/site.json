@@ -1,0 +1,21 @@
+{
+  "_kommentar": "Grundinställningar för hela sajten. Fält markerade med ÄNDRA behöver fyllas i med Eszters riktiga uppgifter.",
+  "name": "Eszter Kunszt",
+  "brand": "Eszter",
+  "title": "Konditor & bagare",
+  "tagline": "Små konstverk som går att äta.",
+  "description": "Eszter Kunszt är konditor och bagare med ungerska rötter och ett hjärta för det franska konditoriet. Tårtor och bakverk på beställning – och recept från mitt kök.",
+  "url": "https://eszter.se",
+  "lang": "sv",
+  "email": "hej@eszter.se",
+  "_email": "ÄNDRA: Eszters riktiga e-postadress.",
+  "instagram": "eszter.bakar",
+  "_instagram": "ÄNDRA: Eszters Instagram-namn utan @.",
+  "location": "Sverige",
+  "_location": "ÄNDRA gärna till stad, t.ex. 'Göteborg'. Visas i sidfoten.",
+  "portrait": "",
+  "_portrait": "Sökväg till ett porträtt av Eszter, t.ex. '/assets/img/eszter.webp'. Tomt = en målad palett visas i stället.",
+  "orderFormEndpoint": "",
+  "_orderFormEndpoint": "Tomt = beställningsformuläret öppnar besökarens mejlprogram. Fyll i en Formspree-adress (https://formspree.io/f/xxxx) för att ta emot beställningar direkt.",
+  "orderLeadTime": "2–3 veckor"
+}

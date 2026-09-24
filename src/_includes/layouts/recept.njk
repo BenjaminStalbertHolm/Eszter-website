@@ -1,0 +1,75 @@
+---
+layout: layouts/base.njk
+bodyClass: sida-recept
+---
+{% import "partials/macros.njk" as m %}
+
+<article class="recept">
+  <p class="brodsmula"><a href="/recept/"><svg class="ikon" aria-hidden="true"><use href="#ikon-pil"/></svg> Alla recept</a></p>
+
+  <header class="recept__huvud">
+    <div>
+      <p class="handskrift sektion__kicker">{{ category }}{% if origin %} · {{ origin }}{% endif %}</p>
+      <h1>{{ title }}</h1>
+      <p class="ingress">{{ subtitle }}</p>
+      <ul class="recept__fakta">
+        <li><svg class="ikon" aria-hidden="true"><use href="#ikon-klocka"/></svg><span class="visuellt-dold">Tid:</span> {{ time }}</li>
+        <li><svg class="ikon" aria-hidden="true"><use href="#ikon-tarta"/></svg><span class="visuellt-dold">Ger:</span> <span data-portioner>{{ servings }}</span></li>
+        <li>{{ m.svarighet(difficulty) }}</li>
+      </ul>
+      <p class="recept__datum">Publicerat <time datetime="{{ page.date | isoDatum }}">{{ page.date | datum }}</time></p>
+    </div>
+    <div class="recept__bild ton-{{ tone }}">
+      {{ m.bild({ image: image, alt: alt, illustration: illustration }) }}
+    </div>
+  </header>
+
+  <div class="recept__kropp">
+    <aside class="ingredienser" aria-labelledby="ingredienser-rubrik">
+      <h2 id="ingredienser-rubrik">Ingredienser</h2>
+      <div class="skala" data-skala role="group" aria-label="Ändra mängd">
+        <span>Mängd:</span>
+        <button type="button" data-faktor="0.5" aria-pressed="false">½×</button>
+        <button type="button" data-faktor="1" aria-pressed="true">1×</button>
+        <button type="button" data-faktor="2" aria-pressed="false">2×</button>
+      </div>
+      {%- for grupp in ingredients %}
+      {%- if grupp.group %}<h3>{{ grupp.group }}</h3>{% endif %}
+      <ul>
+        {%- for item in grupp.items %}
+        <li><label><input type="checkbox"><span data-ingrediens>{{ item }}</span></label></li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </aside>
+
+    <div class="recept__text">
+      {{ content | safe }}
+
+      <h2>Gör så här</h2>
+      {%- for del in instructions %}
+      {%- if del.group %}<h3>{{ del.group }}</h3>{% endif %}
+      <ol class="steglista">
+        {%- for steg in del.steps %}
+        <li><p>{{ steg | mdInline | safe }}</p></li>
+        {%- endfor %}
+      </ol>
+      {%- endfor %}
+
+      {%- if tips %}
+      <aside class="lapp" aria-label="Eszters tips">
+        <span class="tejp" aria-hidden="true"></span>
+        <p class="lapp__rubrik">Eszters tips</p>
+        {%- for tip in tips %}
+        <p>{{ tip | mdInline | safe }}</p>
+        {%- endfor %}
+      </aside>
+      {%- endif %}
+
+      <div class="recept__verktyg">
+        <button class="knapp knapp--sekundar" type="button" data-skriv-ut><svg class="ikon" aria-hidden="true"><use href="#ikon-skriv-ut"/></svg> Skriv ut receptet</button>
+        <a class="knapp" href="https://www.instagram.com/{{ site.instagram }}/" rel="me noopener"><svg class="ikon" aria-hidden="true"><use href="#ikon-instagram"/></svg> Bakade du? Tagga mig!</a>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,34 @@
+<svg class="illu" viewBox="0 0 400 320" aria-hidden="true" focusable="false">
+  <g filter="url(#skakig)" stroke="#3B2A25" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <ellipse cx="200" cy="278" rx="150" ry="22" fill="#E4EEFA"/>
+    <path d="M82,275 A118,12 0 0 0 318,275" fill="none" stroke="#9CC0EE" stroke-width="3"/>
+    <ellipse cx="206" cy="266" rx="98" ry="18" fill="#3B2A25" opacity=".12" stroke="none"/>
+    <path d="M105,205 L105,262 A95,18 0 0 0 295,262 L295,205 Z" fill="#FDF0E2"/>
+    <path d="M109,215 Q131.8,243.5 154.5,230.8 Q177.3,248.5 200,233 Q222.8,248.5 245.5,230.8 Q268.3,243.5 291,215" fill="none" stroke="#E88F98" stroke-width="3.5"/>
+    <ellipse cx="200" cy="205" rx="95" ry="18" fill="#FFF7EC"/><circle cx="294.1" cy="264.5" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="288.8" cy="268.4" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="279" cy="272" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="265.3" cy="275.1" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="248.3" cy="277.5" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="228.9" cy="279.1" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="208" cy="279.9" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="186.8" cy="279.8" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="166.2" cy="278.8" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="147.3" cy="277" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="131" cy="274.4" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="118.2" cy="271.2" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="109.5" cy="267.5" r="4.2" fill="#FFF9EF" stroke-width="2"/>
+    <path d="M134,150 L134,205 A66,13 0 0 0 266,205 L266,150 Z" fill="#FDF0E2"/>
+    <path d="M138,160 Q158.7,186.1 179.3,172.3 Q200,189 220.7,172.3 Q241.3,186.1 262,160" fill="none" stroke="#E88F98" stroke-width="3.5"/>
+    <ellipse cx="200" cy="150" rx="66" ry="13" fill="#FFF7EC"/><circle cx="265.4" cy="206.8" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="258.3" cy="211.1" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="244.2" cy="214.7" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="224.7" cy="217.1" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="202.3" cy="218" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="179.6" cy="217.4" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="159.4" cy="215.2" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="144" cy="211.9" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="135.4" cy="207.7" r="4.2" fill="#FFF9EF" stroke-width="2"/>
+    <path d="M160,102 L160,150 A40,9 0 0 0 240,150 L240,102 Z" fill="#FDF0E2"/>
+    <path d="M164,112 Q182,136 200,121 Q218,136 236,112" fill="none" stroke="#E88F98" stroke-width="3.5"/>
+    <ellipse cx="200" cy="102" rx="40" ry="9" fill="#FFF7EC"/><circle cx="239.6" cy="151.3" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="231.5" cy="155.5" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="215" cy="158.3" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="194.4" cy="158.9" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="175.4" cy="157.1" r="4.2" fill="#FFF9EF" stroke-width="2"/><circle cx="162.9" cy="153.4" r="4.2" fill="#FFF9EF" stroke-width="2"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(168 102) rotate(200) scale(0.9)"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(236 110) rotate(-20) scale(0.8)"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(228 160) rotate(150) scale(0.7)"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(276 206) rotate(-30) scale(0.8)"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(252 244) rotate(30) scale(0.8)"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(138 252) rotate(170) scale(0.7)"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(182 98) rotate(0) scale(1.1)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(206 94) rotate(30) scale(0.9)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(224 104) rotate(10) scale(0.8)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(238 150) rotate(20) scale(1)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(256 170) rotate(50) scale(0.75)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(214 172) rotate(5) scale(0.7)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(262 204) rotate(15) scale(1.1)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(284 222) rotate(40) scale(0.8)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(240 236) rotate(70) scale(0.85)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(130 238) rotate(20) scale(0.7)" stroke="none"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(150 252) rotate(50) scale(0.9)" stroke="none"/>
+  </g>
+</svg>

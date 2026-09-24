@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: Länkar
+description: Alla länkar till Eszter Kunszt – beställ en tårta, läs recept och se mina skapelser.
+permalink: /lankar/
+hideChrome: true
+bodyClass: sida-lankar
+---
+{#- Den här sidan är gjord för länken i Instagram-bion: eszter.se/lankar -#}
+<div class="markis" aria-hidden="true"></div>
+<div class="lankar">
+  <img class="lankar__avatar" src="/assets/img/favicon-512.png" width="512" height="512" alt="">
+  <h1>{{ site.brand }}</h1>
+  <p class="lankar__titel">konditor &amp; bagare · <span lang="hu">szia!</span></p>
+  <ul>
+    <li><a class="knapp" href="/bestall/">Beställ en tårta</a></li>
+    {%- set senaste = collections.recept | first %}
+    {%- if senaste %}
+    <li><a class="knapp" href="{{ senaste.url }}">Nytt recept: {{ senaste.data.title }}</a></li>
+    {%- endif %}
+    <li><a class="knapp" href="/skapelser/">Mina skapelser</a></li>
+    <li><a class="knapp" href="/recept/">Alla recept</a></li>
+    <li><a class="knapp" href="/om/">Om mig</a></li>
+    <li><a class="knapp" href="mailto:{{ site.email }}"><svg class="ikon" aria-hidden="true"><use href="#ikon-mejl"/></svg> Mejla mig</a></li>
+  </ul>
+  <p class="lankar__liten"><a href="/">{{ site.url | replace("https://", "") }}</a></p>
+</div>

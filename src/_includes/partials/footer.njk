@@ -1,0 +1,36 @@
+<footer class="sidfot">
+  <div class="rutmonster" aria-hidden="true"></div>
+  <div class="sidfot__inre">
+    <div class="sidfot__varumarke">
+      <img src="/assets/img/gas-200.webp" width="77" height="120" alt="" loading="lazy">
+      <div>
+        <p class="sidfot__namn">{{ site.name }}</p>
+        <p>Konditor &amp; bagare i {{ site.location }}.<br>Handgjort med smör, socker och en nypa busighet.</p>
+      </div>
+    </div>
+
+    <nav class="sidfot__lankar" aria-label="Sidfot">
+      <p class="sidfot__rubrik">Hitta hit</p>
+      <ul>
+        <li><a href="/skapelser/">Skapelser</a></li>
+        <li><a href="/recept/">Recept</a></li>
+        <li><a href="/om/">Om mig</a></li>
+        <li><a href="/bestall/">Beställ en tårta</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidfot__kontakt">
+      <p class="sidfot__rubrik">Säg hej</p>
+      <ul>
+        <li><a href="mailto:{{ site.email }}"><svg class="ikon" aria-hidden="true"><use href="#ikon-mejl"/></svg>{{ site.email }}</a></li>
+        <li><a href="https://www.instagram.com/{{ site.instagram }}/" rel="me noopener"><svg class="ikon" aria-hidden="true"><use href="#ikon-instagram"/></svg>@{{ site.instagram }}</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="sidfot__botten">
+    <span>© {% year %} {{ site.name }}</span>
+    <span class="sidfot__hej" lang="hu">Jó étvágyat!</span>
+    <span class="sidfot__hej" lang="fr">Bon appétit!</span>
+    <span class="sidfot__hej">Smaklig måltid!</span>
+  </p>
+</footer>

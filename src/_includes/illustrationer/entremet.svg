@@ -1,0 +1,19 @@
+<svg class="illu" viewBox="0 0 400 320" aria-hidden="true" focusable="false">
+  <g filter="url(#skakig)" stroke="#3B2A25" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <ellipse cx="200" cy="280" rx="160" ry="22" fill="#E4EEFA"/>
+    <path d="M72,277 A128,12 0 0 0 328,277" fill="none" stroke="#9CC0EE" stroke-width="3"/>
+    <ellipse cx="206" cy="260" rx="116" ry="22" fill="#3B2A25" opacity=".12" stroke="none"/>
+    <path d="M88,236 L88,250 A112,20 0 0 0 312,250 L312,236 Z" fill="#C98A48"/>
+    <ellipse cx="200" cy="236" rx="112" ry="20" fill="#D9A15E"/><circle cx="110" cy="244" r="2.2" fill="#9A6230" stroke="none"/><circle cx="140" cy="252" r="2.2" fill="#9A6230" stroke="none"/><circle cx="176" cy="256" r="2.2" fill="#9A6230" stroke="none"/><circle cx="214" cy="256" r="2.2" fill="#9A6230" stroke="none"/><circle cx="252" cy="253" r="2.2" fill="#9A6230" stroke="none"/><circle cx="288" cy="245" r="2.2" fill="#9A6230" stroke="none"/>
+    <path d="M96,236 C94,148 140,104 200,104 C260,104 306,148 304,236 C298,244 292,242 290,236 C286,246 276,248 272,240 C266,252 252,252 248,242 C238,250 226,250 222,244 C210,256 196,254 190,244 C180,252 166,250 160,242 C150,252 136,250 132,240 C124,248 110,246 108,238 C104,244 98,242 96,236 Z" fill="#8DB4EA"/>
+    <path d="M268,132 C290,156 298,196 296,226" stroke="#5F8BCF" stroke-width="8" fill="none" opacity=".7"/>
+    <path d="M124,178 C128,150 146,128 176,118" stroke="#FFF9EF" stroke-width="9" fill="none" opacity=".85"/>
+    <path d="M122,196 C122,192 122,190 123,188" stroke="#FFF9EF" stroke-width="7" fill="none" opacity=".85"/>
+    <path d="M226,98 C230,84 246,80 252,90 C256,98 246,104 240,98" fill="none" stroke="#FFF6E6" stroke-width="7"/>
+    <path d="M226,98 C230,84 246,80 252,90 C256,98 246,104 240,98" fill="none" stroke-width="2"/>
+    <path d="M170,104 L180,96 L186,104 L178,110 Z" fill="#EDC45A" stroke-width="2"/><path d="M252,114 L258,108 L264,114 L258,118 Z" fill="#EDC45A" stroke-width="2"/>
+    <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(214 104) rotate(-150) scale(0.7)"/> <path d="M0,0 C6,-8 18,-9 26,0 C18,9 6,8 0,0 Z" fill="#8FB56E" stroke-width="2.5" transform="translate(212 100) rotate(-30) scale(0.6)"/>
+    <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(200 100) rotate(0) scale(0.9)" stroke="none"/> <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(220 106) rotate(30) scale(0.7)" stroke="none"/> <use href="#forgatmigej" x="-13" y="-13" width="26" height="26" transform="translate(186 108) rotate(10) scale(0.65)" stroke="none"/>
+  </g>
+</svg>

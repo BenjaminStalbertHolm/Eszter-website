@@ -1,0 +1,51 @@
+{
+  "_kommentar": "Innehåll till Beställ-sidan: vad som går att beställa och vanliga frågor.",
+  "offers": [
+    {
+      "title": "Tårtor till kalas",
+      "text": "Födelsedag, dop, examen eller en helt vanlig tisdag som förtjänar lite glans.",
+      "illustration": "dobos",
+      "tone": "smor"
+    },
+    {
+      "title": "Bröllopstårtor",
+      "text": "Våningstårtor och tårtbord som ser ut som ni – med blommor, spets eller en nypa humor.",
+      "illustration": "brollopstarta",
+      "tone": "forgatmigej"
+    },
+    {
+      "title": "Bakelser & petits fours",
+      "text": "Macarons, tarteletter och entremets för mingel, fika och finare tillställningar.",
+      "illustration": "macarons",
+      "tone": "rosa"
+    },
+    {
+      "title": "Något helt eget",
+      "text": "Har du en idé som inte finns i någon kategori? Perfekt. Det är mina favoritbeställningar.",
+      "illustration": "entremet",
+      "tone": "mint"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Hur långt i förväg behöver jag beställa?",
+      "a": "Gärna 2–3 veckor innan, och för bröllop ännu tidigare. Hör ändå av dig om det är bråttom – ibland finns det en lucka!"
+    },
+    {
+      "q": "Kan du baka utan gluten, laktos eller nötter?",
+      "a": "Ofta ja. Berätta om allergier redan i förfrågan så berättar jag vad som går. Observera att allt bakas i ett kök där nötter, gluten och mjölk förekommer."
+    },
+    {
+      "q": "Vad kostar en tårta?",
+      "a": "Det beror på storlek, antal våningar och hur avancerad dekoren är. Du får alltid ett prisförslag innan något är bestämt."
+    },
+    {
+      "q": "Hur får jag min tårta?",
+      "a": "Upphämtning sker enligt överenskommelse. Leverans kan ofta ordnas för större tårtor – fråga gärna!"
+    },
+    {
+      "q": "Får jag lägga upp bilder på tårtan?",
+      "a": "Ja, snälla! Tagga mig gärna på Instagram – då blir både jag och gåsen jätteglada."
+    }
+  ]
+}

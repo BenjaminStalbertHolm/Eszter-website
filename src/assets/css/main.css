@@ -1,0 +1,1439 @@
+/* ==========================================================================
+   Eszter.se – stilmall
+   Som en hembakad tårta: ordentlig grund, lite skeva kanter, mycket kärlek.
+   Inspiration: franska pâtisserie-markiser, ungerska folkkonstblommor,
+   50-talscaféer och förgätmigej. Ingen ren vit, ingen ren svart.
+   ========================================================================== */
+
+/* ---------- Typsnitt (egna filer, inga externa anrop) ---------- */
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin-ext-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito-latin.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito-latin-ext.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito-latin-italic.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/caveat-latin-600.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/caveat-latin-ext-600.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---------- Färger & grundvärden ---------- */
+:root {
+  /* bas */
+  --gradde: #FBF3E4;          /* sidans bakgrund – vispad grädde */
+  --papper: #FFF9EF;          /* kort och ytor – akvarellpapper */
+  --kex: #F3E4CB;             /* rostad ton för detaljer */
+  --kakao: #3B2A25;           /* text och konturer – aldrig rent svart */
+  --kakao-mjuk: #6B5750;      /* sekundär text */
+
+  /* accenter */
+  --paprika: #C8363D;         /* kockmössan */
+  --paprika-djup: #A8292F;
+  --aprikos: #F0913A;         /* näbben */
+  --forgatmigej: #9CC0EE;
+  --forgatmigej-ljus: #DCE8F8;
+  --forgatmigej-djup: #3E68AD;
+  --smor: #F6D57A;
+  --smor-ljus: #FBEBB8;
+  --mint: #BFE3D0;
+  --mint-ljus: #E3F3EA;
+  --rosa: #F6CACB;
+  --rosa-ljus: #FBE7E3;
+  --pistage: #A9C77E;
+  --blad: #4A7A3A;
+
+  /* typografi */
+  --font-rubrik: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-brod: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+
+  /* form */
+  --kontur: 3px solid var(--kakao);
+  --skugga: 4px 5px 0 var(--kakao);
+  --skugga-mjuk: 0 14px 30px -16px rgb(59 42 37 / .5);
+  --radie: 1.25rem;
+  --max: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+
+  --klotter-rod: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 10' width='40' height='10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5' fill='none' stroke='%23C8363D' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  --klotter-bla: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 10' width='40' height='10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5' fill='none' stroke='%237BA6E0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  --strossel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg stroke-linecap='round' stroke-width='5' fill='none'%3E%3Cpath d='M20 30l10 6' stroke='%23C8363D'/%3E%3Cpath d='M70 18l-4 11' stroke='%23F6D57A'/%3E%3Cpath d='M130 40l11-3' stroke='%239CC0EE'/%3E%3Cpath d='M40 90l3 11' stroke='%23BFE3D0'/%3E%3Cpath d='M100 80l10 6' stroke='%23F6CACB'/%3E%3Cpath d='M160 100l-6 9' stroke='%23C8363D'/%3E%3Cpath d='M20 150l11 2' stroke='%23F0913A'/%3E%3Cpath d='M80 140l-8 8' stroke='%239CC0EE'/%3E%3Cpath d='M135 150l4 10' stroke='%23F6D57A'/%3E%3C/g%3E%3C/svg%3E");
+  --papperskorn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .16 0 0 0 0 .14 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Grund ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--gradde);
+  background-image: var(--papperskorn);
+  color: var(--kakao);
+  font-family: var(--font-brod);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-rubrik);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  line-height: 1.08;
+  margin: 0 0 .5em;
+  text-wrap: balance;
+  letter-spacing: -.01em;
+}
+h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); font-weight: 700; }
+h2 { font-size: clamp(2rem, 4.5vw, 3.1rem); }
+h3 { font-size: 1.4rem; }
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a {
+  color: var(--forgatmigej-djup);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .18em;
+}
+a:hover { color: var(--paprika-djup); }
+
+:focus-visible {
+  outline: 3px solid var(--forgatmigej-djup);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection { background: var(--smor); color: var(--kakao); }
+
+main { display: block; }
+main:focus { outline: none; }
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.ikon { width: 1.2em; height: 1.2em; flex: none; display: inline-block; vertical-align: -.2em; }
+
+.visuellt-dold {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.hoppa-till {
+  position: absolute;
+  left: 1rem; top: -4rem;
+  z-index: 100;
+  padding: .7rem 1rem;
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: 999px;
+  font-weight: 800;
+  color: var(--kakao);
+}
+.hoppa-till:focus { top: 1rem; }
+
+.handskrift {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Handritade vågiga understrykningar */
+.klotter {
+  background: var(--klotter-rod) left bottom / auto .32em repeat-x;
+  padding-bottom: .1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.klotter--bla { background-image: var(--klotter-bla); }
+
+.ingress {
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+  color: var(--kakao-mjuk);
+  max-width: 38rem;
+}
+
+/* Bakgrundstoner till illustrationer och kort */
+.ton-smor { --ton: #F8DE93; }
+.ton-forgatmigej { --ton: #BCD4F4; }
+.ton-rosa { --ton: #F6CACB; }
+.ton-mint { --ton: #BFE3D0; }
+
+/* ---------- Knappar & länkar ---------- */
+.knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  padding: .85em 1.4em;
+  border: var(--kontur);
+  border-radius: 999px;
+  background: var(--paprika);
+  color: var(--papper);
+  box-shadow: 3px 4px 0 var(--kakao);
+  font: 800 1.05rem/1.1 var(--font-brod);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s;
+}
+.knapp:hover {
+  color: var(--papper);
+  background: var(--paprika-djup);
+  transform: translate(-2px, -2px) rotate(-1.5deg);
+  box-shadow: 5px 7px 0 var(--kakao);
+}
+.knapp:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--kakao); }
+.knapp--sekundar { background: var(--papper); color: var(--kakao); }
+.knapp--sekundar:hover { background: var(--smor-ljus); color: var(--kakao); }
+.knapp--liten { padding: .55em 1.1em; font-size: .98rem; box-shadow: 2px 3px 0 var(--kakao); }
+.knapp--stor { font-size: 1.2rem; padding: 1em 1.8em; }
+
+.knapprad { display: flex; flex-wrap: wrap; gap: .9rem 1rem; margin-top: 1.75rem; }
+
+.lank-pil {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  font-weight: 800;
+  color: var(--kakao);
+  text-decoration: none;
+  background: var(--klotter-rod) left bottom / auto .3em repeat-x;
+  padding-bottom: .15em;
+}
+.lank-pil .ikon { transition: transform .2s; }
+.lank-pil:hover { color: var(--paprika-djup); }
+.lank-pil:hover .ikon { transform: translateX(4px); }
+
+/* ---------- Markis & sidhuvud ---------- */
+.markis {
+  position: relative;
+  height: 46px;
+  filter: drop-shadow(0 3px 0 var(--kakao));
+  z-index: 2;
+}
+.markis::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -1px;
+  background: repeating-linear-gradient(90deg, var(--paprika) 0 40px, var(--papper) 40px 80px);
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - 19px) no-repeat,
+    radial-gradient(circle 20px at 50% 0, #000 19.5px, #0000 20px) left bottom / 40px 20px repeat-x;
+  mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - 19px) no-repeat,
+    radial-gradient(circle 20px at 50% 0, #000 19.5px, #0000 20px) left bottom / 40px 20px repeat-x;
+}
+
+.sidhuvud { position: relative; z-index: 10; padding: .5rem var(--gutter) 0; }
+.sidhuvud__inre {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logga {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--kakao);
+  text-decoration: none;
+}
+.logga__gas {
+  width: 52px;
+  height: auto;
+  margin-top: -.9rem;
+  transform-origin: 50% 90%;
+  transition: transform .3s;
+}
+.logga:hover .logga__gas { transform: rotate(-8deg); }
+.logga:hover { color: var(--kakao); }
+.logga__text { display: flex; flex-direction: column; line-height: 1; }
+.logga__namn {
+  font-family: var(--font-rubrik);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2.3rem;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  letter-spacing: -.02em;
+}
+.logga__titel {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--paprika-djup);
+  margin-top: .25rem;
+}
+
+.huvudmeny ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(.5rem, 2vw, 1.6rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.huvudmeny a:not(.knapp) {
+  color: var(--kakao);
+  font-weight: 800;
+  text-decoration: none;
+  padding: .3em .1em;
+  background: var(--klotter-bla) left bottom / 0 .3em repeat-x;
+  transition: background-size .3s ease;
+}
+.huvudmeny a:not(.knapp):hover,
+.huvudmeny a:not(.knapp)[aria-current="page"] { background-size: 100% .3em; }
+.huvudmeny a:not(.knapp)[aria-current="page"] { color: var(--kakao); }
+
+.meny-knapp {
+  display: none;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .95rem;
+  border: var(--kontur);
+  border-radius: 999px;
+  background: var(--papper);
+  color: var(--kakao);
+  font: 800 1rem var(--font-brod);
+  box-shadow: 2px 3px 0 var(--kakao);
+  cursor: pointer;
+}
+.meny-knapp__streck,
+.meny-knapp__streck::before,
+.meny-knapp__streck::after {
+  display: block;
+  width: 18px;
+  height: 3px;
+  border-radius: 3px;
+  background: currentColor;
+  transition: transform .25s, opacity .25s;
+}
+.meny-knapp__streck { position: relative; }
+.meny-knapp__streck::before,
+.meny-knapp__streck::after { content: ""; position: absolute; left: 0; }
+.meny-knapp__streck::before { top: -6px; }
+.meny-knapp__streck::after { top: 6px; }
+.meny-knapp[aria-expanded="true"] .meny-knapp__streck { background: transparent; }
+.meny-knapp[aria-expanded="true"] .meny-knapp__streck::before { transform: translateY(6px) rotate(45deg); }
+.meny-knapp[aria-expanded="true"] .meny-knapp__streck::after { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 47.99rem) {
+  .js .meny-knapp { display: inline-flex; }
+  .js .huvudmeny {
+    position: absolute;
+    top: calc(100% + .5rem);
+    left: var(--gutter);
+    right: var(--gutter);
+    padding: 1.25rem;
+    background: var(--papper);
+    border: var(--kontur);
+    border-radius: var(--radie);
+    box-shadow: var(--skugga);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-.5rem) rotate(-1deg);
+    transition: opacity .2s, transform .2s, visibility .2s;
+  }
+  .js .meny-knapp[aria-expanded="true"] + .huvudmeny {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .js .huvudmeny ul { flex-direction: column; align-items: stretch; gap: .25rem; }
+  .js .huvudmeny a:not(.knapp) { display: block; padding: .6rem .25rem; font-size: 1.2rem; }
+  .js .huvudmeny .knapp { margin-top: .5rem; width: 100%; }
+
+  html:not(.js) .sidhuvud__inre { flex-wrap: wrap; }
+  html:not(.js) .huvudmeny ul { flex-wrap: wrap; }
+}
+
+/* ---------- Sektioner ---------- */
+.sektion {
+  position: relative;
+  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter);
+}
+.sektion > * { max-width: var(--max); margin-inline: auto; }
+.sektion__huvud { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.25rem); }
+.sektion__huvud h2 { margin-bottom: .3em; }
+.sektion__kicker {
+  font-size: 1.6rem;
+  color: var(--paprika-djup);
+  margin: 0 0 .25rem;
+  rotate: -2deg;
+}
+.sektion__ingress { max-width: 40rem; margin-inline: auto; color: var(--kakao-mjuk); font-size: 1.12rem; }
+.sektion__mer { text-align: center; margin-top: 2.5rem; margin-bottom: 0; }
+
+/* Sektioner med färg får spritsade kanter – som grädde runt en tårta */
+.sektion--rosa { --sektionsfarg: var(--rosa-ljus); }
+.sektion--mint { --sektionsfarg: var(--mint-ljus); }
+.sektion--bla { --sektionsfarg: var(--forgatmigej-ljus); }
+.sektion--smor { --sektionsfarg: var(--smor-ljus); }
+.sektion--rosa, .sektion--mint, .sektion--bla, .sektion--smor {
+  background: var(--sektionsfarg);
+  margin-block: 22px;
+}
+:is(.sektion--rosa, .sektion--mint, .sektion--bla, .sektion--smor)::before,
+:is(.sektion--rosa, .sektion--mint, .sektion--bla, .sektion--smor)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22px;
+  max-width: none;
+  background: radial-gradient(circle at 50% 100%, var(--sektionsfarg) 14.5px, #0000 15px) 0 0 / 32px 22px repeat-x;
+}
+:is(.sektion--rosa, .sektion--mint, .sektion--bla, .sektion--smor)::before { top: -21px; }
+:is(.sektion--rosa, .sektion--mint, .sektion--bla, .sektion--smor)::after {
+  bottom: -21px;
+  background: radial-gradient(circle at 50% 0, var(--sektionsfarg) 14.5px, #0000 15px) 0 0 / 32px 22px repeat-x;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) var(--gutter) clamp(3rem, 7vw, 5rem);
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 56rem) {
+  .hero { grid-template-columns: 1.08fr 1fr; }
+}
+.hero__halsning {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: var(--paprika-djup);
+  margin: 0 0 .5rem;
+  rotate: -2deg;
+  transform-origin: left;
+}
+.hero__halsning span { display: inline-block; }
+.hero__halsning span:nth-child(2) { color: var(--forgatmigej-djup); rotate: 3deg; }
+.hero__rubrik { margin-bottom: .45em; }
+
+.hero__bild {
+  position: relative;
+  width: min(100%, 32rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+.hero__bricka {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hero__ring {
+  font: 800 16px var(--font-brod);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  fill: var(--kakao);
+}
+.hero__bricka { animation: snurra 60s linear infinite; }
+@keyframes snurra { to { rotate: 360deg; } }
+
+/* Gåsen ligger i en kvadrat lika stor som brickan. Masken släpper igenom
+   allt ovanför mitten (mössan får sticka upp) men klipper halsen längs
+   den mintgröna cirkeln, så att den ser ut att sitta i en rund ram. */
+.gas {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% 50% no-repeat,
+    radial-gradient(ellipse 37.1% 37.1% at 50% 50%, #000 99.5%, #0000 100%);
+  mask:
+    linear-gradient(#000 0 0) top / 100% 50% no-repeat,
+    radial-gradient(ellipse 37.1% 37.1% at 50% 50%, #000 99.5%, #0000 100%);
+}
+.gas img {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 60%;
+  translate: -46% 0;
+  transform-origin: 50% 100%;
+}
+.gas:hover img { animation: vicka .6s ease-in-out; }
+.gas.pratar img { animation: hoppa .45s ease-out; }
+.gas:focus-visible { outline: none; }
+.gas:focus-visible img { filter: drop-shadow(0 0 0 var(--forgatmigej-djup)) drop-shadow(0 0 6px var(--forgatmigej-djup)); }
+@keyframes vicka {
+  25% { rotate: -4deg; }
+  75% { rotate: 3deg; }
+}
+@keyframes hoppa {
+  30% { translate: -46% -6%; rotate: -3deg; }
+  60% { translate: -46% 0; rotate: 2deg; }
+}
+
+.pratbubbla {
+  position: absolute;
+  top: 12%;
+  left: -2%;
+  margin: 0;
+  padding: .45em .9em .5em;
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: 1.2em 1.2em 1.2em .3em;
+  box-shadow: 3px 4px 0 var(--kakao);
+  font: 700 clamp(1.3rem, 2.8vw, 1.65rem)/1.1 var(--font-hand);
+  rotate: -6deg;
+  white-space: nowrap;
+  transition: scale .2s;
+}
+.pratbubbla.ny { animation: plopp .35s ease-out; }
+@keyframes plopp { 0% { scale: .6; } 70% { scale: 1.08; } 100% { scale: 1; } }
+
+.hero__anteckning {
+  position: absolute;
+  right: -3%;
+  bottom: -4%;
+  margin: 0;
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  color: var(--forgatmigej-djup);
+  rotate: -4deg;
+  text-align: left;
+}
+.hero__pil {
+  position: absolute;
+  width: 3.4rem;
+  left: -3.6rem;
+  top: -1.9rem;
+  color: var(--forgatmigej-djup);
+}
+
+.blomma { position: absolute; width: 2.4rem; height: 2.4rem; pointer-events: none; }
+.blomma--1 { top: 2%; right: 12%; width: 3.2rem; height: 3.2rem; rotate: 12deg; }
+.blomma--2 { top: 40%; right: -2%; rotate: -20deg; }
+.blomma--3 { bottom: 16%; left: 2%; width: 2.8rem; height: 2.8rem; rotate: 30deg; }
+.gnista { position: absolute; width: 1.6rem; height: 1.6rem; fill: var(--smor); stroke: var(--kakao); stroke-width: 1.4; }
+.gnista--1 { top: 6%; left: 18%; }
+.gnista--2 { bottom: 34%; right: 6%; width: 1.1rem; height: 1.1rem; fill: var(--aprikos); }
+
+/* ---------- Löpande band ---------- */
+.band-ram { overflow: hidden; padding-block: 1.25rem; margin-block: -1.25rem; }
+.band {
+  position: relative;
+  overflow: hidden;
+  background: var(--smor);
+  border-block: var(--kontur);
+  rotate: -1.2deg;
+  margin: 0 -2rem;
+  padding: .7rem 0;
+  box-shadow: 0 5px 0 rgb(59 42 37 / .15);
+}
+.band__spar {
+  display: flex;
+  width: max-content;
+  animation: rulla 40s linear infinite;
+}
+.band span {
+  display: inline-flex;
+  align-items: center;
+  font: italic 600 1.35rem/1 var(--font-rubrik);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  white-space: nowrap;
+}
+.band span::after {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-inline: 1.4rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-13 -13 26 26'%3E%3Cg fill='%23C8363D' stroke='%233B2A25' stroke-width='1.3'%3E%3Ccircle cx='0' cy='-6' r='5.2'/%3E%3Ccircle cx='5.71' cy='-1.85' r='5.2'/%3E%3Ccircle cx='3.53' cy='4.85' r='5.2'/%3E%3Ccircle cx='-3.53' cy='4.85' r='5.2'/%3E%3Ccircle cx='-5.71' cy='-1.85' r='5.2'/%3E%3C/g%3E%3Ccircle r='3' fill='%23FFF9EF' stroke='%233B2A25'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+@keyframes rulla { to { transform: translateX(-50%); } }
+
+/* ---------- Polaroider (galleri) ---------- */
+.polaroider {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: .75rem;
+}
+.polaroid {
+  position: relative;
+  margin: 0;
+  padding: .85rem .85rem 1.3rem;
+  background: var(--papper);
+  border: 1px solid rgb(59 42 37 / .12);
+  border-radius: 4px;
+  box-shadow: var(--skugga-mjuk), 0 2px 0 rgb(59 42 37 / .06);
+  rotate: -1.8deg;
+  transition: rotate .35s cubic-bezier(.3, 1.6, .5, 1), translate .35s;
+}
+.polaroid:nth-child(3n + 2) { rotate: 1.6deg; }
+.polaroid:nth-child(3n) { rotate: -.7deg; }
+.polaroid:hover { rotate: 0deg; translate: 0 -6px; }
+.polaroid[hidden] { display: none; }
+
+.tejp {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  z-index: 1;
+  width: 96px;
+  height: 28px;
+  translate: -50% 0;
+  rotate: -5deg;
+  background: rgb(246 213 122 / .78);
+  clip-path: polygon(0 8%, 6% 0, 12% 10%, 18% 0, 24% 8%, 100% 0, 100% 92%, 94% 100%, 88% 90%, 82% 100%, 76% 92%, 0 100%);
+}
+.polaroid:nth-child(2n) .tejp { background: rgb(156 192 238 / .7); rotate: 4deg; }
+.polaroid:nth-child(3n) .tejp { background: rgb(246 202 203 / .8); }
+
+.polaroid__bild {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--ton, var(--smor-ljus));
+  cursor: zoom-in;
+}
+.polaroid__bild > * { width: 100%; height: 100%; object-fit: cover; }
+.polaroid__bild .illu { padding: 4% 6% 0; transition: scale .4s ease; }
+.polaroid:hover .polaroid__bild .illu { scale: 1.05; }
+.polaroid figcaption { padding: 1rem .3rem 0; }
+.polaroid__titel { font-size: 1.35rem; margin: 0; }
+.polaroid__kategori {
+  font: 600 1.25rem/1.2 var(--font-hand);
+  color: var(--paprika-djup);
+  margin: .1rem 0 .5rem;
+}
+.polaroid__text { font-size: .98rem; color: var(--kakao-mjuk); margin: 0; }
+
+/* ---------- Steg (så går det till) ---------- */
+.steg {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 2.5rem 2rem;
+  counter-reset: steg;
+}
+.steg__punkt {
+  counter-increment: steg;
+  position: relative;
+  padding: 3.5rem 1.4rem 1.5rem;
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: 2rem 2rem 2rem .6rem;
+  box-shadow: var(--skugga);
+}
+.steg__punkt:nth-child(even) { border-radius: 2rem 2rem .6rem 2rem; }
+.steg__punkt::before {
+  content: counter(steg);
+  position: absolute;
+  top: -1.6rem;
+  left: 1.25rem;
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: var(--kontur);
+  border-radius: 50%;
+  background: var(--smor);
+  font: 700 1.8rem/1 var(--font-rubrik);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  rotate: -8deg;
+}
+.steg__punkt:nth-child(2)::before { background: var(--forgatmigej); rotate: 6deg; }
+.steg__punkt:nth-child(3)::before { background: var(--mint); }
+.steg__punkt:nth-child(4)::before { background: var(--rosa); rotate: 10deg; }
+.steg__punkt h3 { font-size: 1.3rem; }
+.steg__punkt p { margin: 0; color: var(--kakao-mjuk); }
+
+/* ---------- Om-teaser ---------- */
+.om-teaser {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+@media (min-width: 52rem) {
+  .om-teaser { grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); }
+}
+.om-teaser__ram { position: relative; max-width: 24rem; width: 100%; margin-inline: auto; }
+.oval-ram {
+  aspect-ratio: 4 / 5;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--ton);
+  border: var(--kontur);
+  box-shadow: 0 0 0 10px var(--papper), 0 0 0 13px var(--kakao), 8px 12px 0 13px rgb(59 42 37 / .18);
+}
+.oval-ram > img { width: 100%; height: 100%; object-fit: cover; }
+.oval-ram .illu { width: 88%; }
+.tulipan { position: absolute; width: 4.5rem; height: 6.75rem; bottom: -1.5rem; }
+.tulipan--vanster { left: 0; rotate: -18deg; }
+.tulipan--hoger { right: 0; rotate: 16deg; }
+@media (min-width: 40rem) {
+  .tulipan--vanster { left: -1rem; }
+  .tulipan--hoger { right: -1rem; }
+}
+.om-teaser__text .sektion__kicker { rotate: -2deg; display: inline-block; }
+
+/* ---------- Receptkort ---------- */
+.receptlista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 2rem;
+}
+.receptkort {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background:
+    repeating-linear-gradient(to bottom, #0000 0 1.95rem, rgb(62 104 173 / .16) 1.95rem calc(1.95rem + 1px)) 0 .6rem,
+    var(--papper);
+  border: var(--kontur);
+  border-radius: .75rem;
+  box-shadow: var(--skugga);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.receptkort:hover { transform: translate(-2px, -3px) rotate(-.6deg); box-shadow: 6px 8px 0 var(--kakao); }
+.receptkort__bild {
+  aspect-ratio: 16 / 10;
+  background: var(--ton);
+  border-bottom: var(--kontur);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.receptkort__bild > * { width: 100%; height: 100%; object-fit: cover; }
+.receptkort__bild .illu { padding: 3% 10% 0; }
+.receptkort__text { padding: 1.1rem 1.3rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.receptkort__text::before {
+  content: "";
+  position: absolute;
+  left: 2.4rem;
+  bottom: 0;
+  height: 45%;
+  border-left: 2px solid rgb(200 54 61 / .35);
+  pointer-events: none;
+}
+.receptkort__ursprung { font: 600 1.25rem/1.2 var(--font-hand); color: var(--paprika-djup); margin: 0 0 .3rem; }
+.receptkort__titel { font-size: 1.5rem; margin-bottom: .35rem; }
+.receptkort__titel a { color: var(--kakao); text-decoration: none; }
+.receptkort__titel a::after { content: ""; position: absolute; inset: 0; }
+.receptkort__titel a:hover { color: var(--paprika-djup); }
+.receptkort__text > p:not([class]) { color: var(--kakao-mjuk); font-size: .98rem; }
+.receptkort__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.2rem;
+  margin: auto 0 0;
+  font-size: .92rem;
+  font-weight: 700;
+}
+.receptkort__meta > span { display: inline-flex; align-items: center; gap: .35rem; }
+
+.svarighet { display: inline-flex; align-items: center; gap: .1rem; }
+.svarighet .ikon { color: var(--paprika); }
+.svarighet .ikon--tom { color: rgb(59 42 37 / .22); }
+.svarighet > span[aria-hidden] { margin-left: .35rem; }
+
+/* ---------- Instagram ---------- */
+.insta-rutnat {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(.5rem, 1.5vw, 1rem);
+  max-width: 52rem;
+}
+.insta-rutnat li {
+  aspect-ratio: 1;
+  background: var(--ton);
+  border: var(--kontur);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: rotate .25s, scale .25s;
+}
+.insta-rutnat li:nth-child(odd):hover { rotate: -2deg; scale: 1.03; }
+.insta-rutnat li:nth-child(even):hover { rotate: 2deg; scale: 1.03; }
+.insta-rutnat a { display: grid; place-items: center; width: 100%; height: 100%; }
+.insta-rutnat a > img { width: 100%; height: 100%; object-fit: cover; }
+.insta-rutnat .illu { width: 100%; padding: 8% 6% 0; }
+@media (min-width: 40rem) {
+  .insta-rutnat { grid-template-columns: repeat(6, 1fr); max-width: var(--max); }
+}
+
+/* ---------- Beställ-CTA ---------- */
+.bestall-cta {
+  padding: clamp(3rem, 7vw, 5rem) var(--gutter);
+  background: var(--forgatmigej-ljus) var(--strossel);
+}
+.bestall-cta__kort {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 3.75rem) clamp(1.5rem, 5vw, 3.5rem);
+  text-align: center;
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: 2.5rem;
+  box-shadow: 6px 8px 0 var(--kakao);
+}
+.bestall-cta__kort > p:not([class]) { max-width: 32rem; margin-inline: auto; color: var(--kakao-mjuk); }
+.bestall-cta__kort .knapp { margin-top: .75rem; }
+.bestall-cta__ikon { width: 3rem; height: 4.5rem; margin: -5rem auto .5rem; }
+.blomma--cta-1 { top: -1.2rem; right: 1.5rem; width: 3rem; height: 3rem; rotate: 15deg; }
+.blomma--cta-2 { bottom: -1.2rem; left: 2rem; rotate: -12deg; }
+
+/* ---------- Sidfot ---------- */
+.sidfot {
+  position: relative;
+  background: var(--mint-ljus);
+  margin-top: 0;
+}
+.rutmonster {
+  height: 32px;
+  background: repeating-conic-gradient(var(--mint) 0 25%, var(--papper) 0 50%) 0 0 / 32px 32px;
+  border-block: var(--kontur);
+}
+.sidfot__inre {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3rem var(--gutter) 2rem;
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 48rem) {
+  .sidfot__inre { grid-template-columns: 1.4fr 1fr 1.2fr; }
+}
+.sidfot__varumarke { display: flex; gap: 1.1rem; align-items: flex-start; }
+.sidfot__varumarke img { width: 60px; flex: none; }
+.sidfot__namn {
+  font: italic 700 1.6rem/1.1 var(--font-rubrik);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  margin-bottom: .4rem;
+}
+.sidfot p { color: var(--kakao-mjuk); }
+.sidfot__rubrik {
+  font: 600 1.45rem/1 var(--font-hand);
+  color: var(--paprika-djup) !important;
+  margin-bottom: .75rem;
+}
+.sidfot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.sidfot a { color: var(--kakao); font-weight: 700; text-decoration-color: rgb(59 42 37 / .3); }
+.sidfot a:hover { color: var(--paprika-djup); text-decoration-color: currentColor; }
+.sidfot__kontakt a { display: inline-flex; align-items: center; gap: .5rem; word-break: break-word; }
+.sidfot__botten {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter) 2rem;
+  border-top: 2px dashed rgb(59 42 37 / .2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  font-size: .92rem;
+}
+.sidfot__hej { font-family: var(--font-hand); font-size: 1.2rem; line-height: 1.2; }
+
+/* ---------- Undersidor: sidrubrik ---------- */
+.sidrubrik {
+  position: relative;
+  text-align: center;
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 4.5rem) var(--gutter) clamp(1.5rem, 4vw, 2.5rem);
+}
+.sidrubrik .ingress { margin-inline: auto; }
+.sidrubrik .sektion__kicker { font-size: clamp(1.6rem, 3vw, 2rem); }
+.sidrubrik__blomma { position: absolute; width: 2.8rem; height: 2.8rem; }
+.sidrubrik__blomma--1 { top: 2.5rem; left: 6%; rotate: -14deg; }
+.sidrubrik__blomma--2 { top: 5.5rem; right: 7%; width: 2.2rem; height: 2.2rem; rotate: 22deg; }
+
+/* ---------- Galleri: filter & ljuslåda ---------- */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  margin: 0 auto 3rem;
+  padding: 0;
+  list-style: none;
+}
+.filter button {
+  padding: .5rem 1.1rem;
+  border: 2px solid var(--kakao);
+  border-radius: 999px;
+  background: var(--papper);
+  color: var(--kakao);
+  font: 800 .98rem var(--font-brod);
+  cursor: pointer;
+  transition: background-color .15s, transform .15s;
+}
+.filter button:hover { background: var(--smor-ljus); transform: rotate(-2deg); }
+.filter button[aria-pressed="true"] { background: var(--paprika); color: var(--papper); box-shadow: 2px 3px 0 var(--kakao); }
+
+.ljuslada {
+  width: min(92vw, 44rem);
+  max-height: 92vh;
+  padding: 0;
+  border: var(--kontur);
+  border-radius: var(--radie);
+  background: var(--papper);
+  color: var(--kakao);
+  box-shadow: 8px 10px 0 var(--kakao);
+  overflow: auto;
+}
+.ljuslada::backdrop { background: rgb(59 42 37 / .72); backdrop-filter: blur(3px); }
+.ljuslada[open] { animation: plopp .3s ease-out; }
+.ljuslada__bild { background: var(--ton, var(--smor-ljus)); display: grid; place-items: center; border-bottom: var(--kontur); }
+.ljuslada__bild > * { width: 100%; max-height: 70vh; object-fit: contain; }
+.ljuslada__bild .illu { padding: 4% 8% 0; }
+.ljuslada__text { padding: 1.4rem 1.6rem 1.6rem; }
+.ljuslada__text h2 { font-size: 1.8rem; margin-bottom: .2rem; }
+.ljuslada__stang {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: var(--kontur);
+  border-radius: 50%;
+  background: var(--papper);
+  color: var(--kakao);
+  font: 800 1.4rem/1 var(--font-brod);
+  cursor: pointer;
+  box-shadow: 2px 3px 0 var(--kakao);
+}
+
+.galleri-not {
+  max-width: 34rem;
+  margin: 4rem auto 0;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--kakao-mjuk);
+  border: 2px dashed rgb(59 42 37 / .3);
+  border-radius: var(--radie);
+}
+
+/* ---------- Receptsida ---------- */
+.recept { padding: 0 var(--gutter) clamp(3rem, 7vw, 5rem); }
+.recept > * { max-width: var(--max); margin-inline: auto; }
+.brodsmula { padding-top: 2rem; font-weight: 800; }
+.brodsmula a { color: var(--kakao); text-decoration: none; display: inline-flex; gap: .35rem; align-items: center; }
+.brodsmula a:hover { color: var(--paprika-djup); }
+.brodsmula .ikon { rotate: 180deg; }
+
+.recept__huvud {
+  display: grid;
+  gap: 2rem 3rem;
+  align-items: center;
+  padding: 1.5rem 0 2.5rem;
+}
+@media (min-width: 52rem) {
+  .recept__huvud { grid-template-columns: 1.1fr 1fr; }
+}
+.recept__huvud h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); }
+.recept__bild {
+  aspect-ratio: 5 / 4;
+  background: var(--ton);
+  border: var(--kontur);
+  border-radius: 45% 45% var(--radie) var(--radie) / 30% 30% var(--radie) var(--radie);
+  box-shadow: var(--skugga);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.recept__bild > * { width: 100%; height: 100%; object-fit: cover; }
+.recept__bild .illu { padding: 8% 8% 0; }
+
+.recept__fakta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.recept__fakta li {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem .9rem;
+  background: var(--papper);
+  border: 2px solid var(--kakao);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .95rem;
+}
+.recept__fakta .ikon { color: var(--paprika); }
+.recept__datum { font-size: .95rem; color: var(--kakao-mjuk); margin-top: 1rem; }
+
+.recept__kropp {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 56rem) {
+  .recept__kropp { grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 4rem; }
+  .ingredienser { position: sticky; top: 1.5rem; }
+}
+
+.ingredienser {
+  padding: 1.5rem 1.5rem 1.75rem;
+  background:
+    repeating-linear-gradient(to bottom, #0000 0 2rem, rgb(62 104 173 / .16) 2rem calc(2rem + 1px)) 0 4.4rem,
+    var(--papper);
+  border: var(--kontur);
+  border-top: 10px solid var(--paprika);
+  border-radius: .6rem;
+  box-shadow: var(--skugga);
+}
+.ingredienser h2 { font-size: 1.7rem; margin-bottom: .75rem; }
+.ingredienser h3 {
+  font: 600 1.45rem/1.2 var(--font-hand);
+  color: var(--paprika-djup);
+  margin: 1.2rem 0 .3rem;
+}
+.ingredienser ul { list-style: none; margin: 0; padding: 0; }
+.ingredienser li { line-height: 1.35; }
+.ingredienser label {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .3rem 0;
+  cursor: pointer;
+}
+.ingredienser input[type="checkbox"] {
+  appearance: none;
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: .12rem 0 0;
+  border: 2px solid var(--kakao);
+  border-radius: 50%;
+  background: var(--papper);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.ingredienser input[type="checkbox"]::before {
+  content: "";
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: var(--paprika);
+  scale: 0;
+  transition: scale .15s;
+}
+.ingredienser input[type="checkbox"]:checked::before { scale: 1; }
+.ingredienser input[type="checkbox"]:checked + span { text-decoration: line-through; text-decoration-color: var(--paprika); color: var(--kakao-mjuk); }
+
+.skala {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: 0 0 .5rem;
+  font-weight: 700;
+  font-size: .92rem;
+}
+.skala button {
+  min-width: 2.6rem;
+  padding: .25rem .6rem;
+  border: 2px solid var(--kakao);
+  border-radius: 999px;
+  background: var(--papper);
+  color: var(--kakao);
+  font: 800 .92rem var(--font-brod);
+  cursor: pointer;
+}
+.skala button[aria-pressed="true"] { background: var(--smor); }
+.skala__portioner { flex-basis: 100%; font-weight: 600; color: var(--kakao-mjuk); }
+
+.recept__text h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-top: 2.5rem; }
+.recept__text h2:first-child { margin-top: 0; }
+.recept__text > p, .recept__text li { max-width: 42rem; }
+.recept__text h3 {
+  font: 600 1.6rem/1.2 var(--font-hand);
+  color: var(--paprika-djup);
+  margin: 2rem 0 .75rem;
+}
+
+.steglista { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+.steglista li {
+  counter-increment: s;
+  position: relative;
+  padding: 0 0 1.4rem 3.6rem;
+  min-height: 2.6rem;
+}
+.steglista li::before {
+  content: counter(s);
+  position: absolute;
+  left: 0;
+  top: -.1rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--kakao);
+  border-radius: 50%;
+  background: var(--papper);
+  font: 700 1.2rem/1 var(--font-rubrik);
+  color: var(--paprika-djup);
+}
+.steglista li:nth-child(3n + 2)::before { background: var(--forgatmigej-ljus); }
+.steglista li:nth-child(3n)::before { background: var(--smor-ljus); }
+.steglista p { margin: 0; }
+
+.lapp {
+  position: relative;
+  max-width: 34rem;
+  margin: 3rem 0 0 .5rem;
+  padding: 2rem 1.75rem 1.5rem;
+  background: var(--smor-ljus);
+  box-shadow: var(--skugga-mjuk);
+  rotate: -1.2deg;
+  font: 600 1.5rem/1.3 var(--font-hand);
+}
+.lapp .tejp { top: -12px; }
+.lapp__rubrik { font-size: 1.9rem; color: var(--paprika-djup); margin: 0 0 .4rem; }
+.lapp p { margin: 0 0 .5rem; }
+.lapp p:last-child { margin: 0; }
+
+.recept__verktyg { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+
+/* ---------- Receptöversikt ---------- */
+.receptsida { padding: 0 var(--gutter) clamp(3rem, 7vw, 5rem); }
+.receptsida > * { max-width: var(--max); margin-inline: auto; }
+
+/* ---------- Om mig ---------- */
+.om-hero {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) clamp(2rem, 5vw, 4rem);
+}
+@media (min-width: 52rem) {
+  .om-hero { grid-template-columns: 1.15fr .85fr; }
+}
+.om-hero h1 { font-size: clamp(2.6rem, 6.5vw, 4.4rem); }
+
+.brodtext { max-width: 42rem; margin-inline: auto; font-size: 1.1rem; }
+.brodtext h2 { margin-top: 1em; }
+
+.tva-kolumner { display: grid; gap: 2.5rem 4rem; align-items: start; }
+@media (min-width: 52rem) {
+  .tva-kolumner { grid-template-columns: 1fr 1fr; }
+}
+
+.fakta-kort {
+  position: relative;
+  padding: 2rem 1.75rem 1.5rem;
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: var(--radie);
+  box-shadow: var(--skugga);
+  rotate: 1deg;
+}
+.fakta-kort h2 { font-size: 1.8rem; }
+.fakta-kort dl { margin: 0; display: grid; gap: .1rem; }
+.fakta-kort dl > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: .6rem 0;
+  border-bottom: 2px dotted rgb(59 42 37 / .25);
+}
+.fakta-kort dl > div:last-child { border-bottom: 0; }
+.fakta-kort dt { font: 600 1.3rem/1.3 var(--font-hand); color: var(--paprika-djup); }
+.fakta-kort dd { margin: 0; font-weight: 700; }
+@media (max-width: 30rem) {
+  .fakta-kort dl > div { grid-template-columns: 1fr; gap: 0; }
+}
+
+.etiketter { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; margin: 0; }
+.etiketter li {
+  padding: .45rem 1rem;
+  border: 2px solid var(--kakao);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .98rem;
+  background: var(--papper);
+}
+.etiketter li:nth-child(4n + 1) { background: var(--rosa-ljus); rotate: -1deg; }
+.etiketter li:nth-child(4n + 2) { background: var(--mint-ljus); rotate: 1deg; }
+.etiketter li:nth-child(4n + 3) { background: var(--smor-ljus); }
+.etiketter li:nth-child(4n) { background: var(--forgatmigej-ljus); rotate: -.5deg; }
+
+.konstkort {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.konstkort > div {
+  padding: 1.5rem;
+  border: var(--kontur);
+  border-radius: var(--radie);
+  background: var(--papper);
+}
+.konstkort h3 { display: flex; gap: .6rem; align-items: center; }
+.konstkort svg { width: 2.2rem; height: 2.2rem; flex: none; }
+.konstkort p { margin: 0; color: var(--kakao-mjuk); }
+
+/* ---------- Beställ ---------- */
+.erbjudanden {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1.75rem;
+}
+.erbjudande {
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: var(--radie);
+  box-shadow: var(--skugga);
+  overflow: hidden;
+}
+.erbjudande__bild { aspect-ratio: 16 / 10; background: var(--ton); border-bottom: var(--kontur); display: grid; place-items: center; }
+.erbjudande__bild .illu { width: 100%; height: 100%; padding: 4% 12% 0; }
+.erbjudande__text { padding: 1.2rem 1.3rem 1.4rem; }
+.erbjudande h3 { font-size: 1.35rem; margin-bottom: .35rem; }
+.erbjudande p { margin: 0; color: var(--kakao-mjuk); font-size: .98rem; }
+
+.bestall-layout { display: grid; gap: 3rem; align-items: start; }
+@media (min-width: 60rem) {
+  .bestall-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 4rem; }
+}
+
+.fragor { display: grid; gap: .9rem; }
+.fragor details {
+  background: var(--papper);
+  border: 2px solid var(--kakao);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.fragor summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+.fragor summary::-webkit-details-marker { display: none; }
+.fragor summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 2px solid var(--kakao);
+  border-radius: 50%;
+  background: var(--smor-ljus);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: rotate .2s;
+}
+.fragor details[open] summary::after { rotate: 45deg; background: var(--rosa); }
+.fragor details > p { padding: 0 1.2rem 1.1rem; margin: 0; color: var(--kakao-mjuk); }
+
+.formular {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--papper);
+  border: var(--kontur);
+  border-radius: 1.75rem;
+  box-shadow: 6px 8px 0 var(--kakao);
+}
+.formular h2 { font-size: clamp(1.8rem, 3.5vw, 2.3rem); }
+.falt-rad { display: grid; gap: 1.1rem 1.25rem; }
+@media (min-width: 36rem) {
+  .falt-rad--2 { grid-template-columns: 1fr 1fr; }
+}
+.falt { display: grid; gap: .35rem; margin-bottom: 1.1rem; }
+.falt-rad .falt { margin-bottom: 0; }
+.falt-rad { margin-bottom: 1.1rem; }
+.falt label, .falt legend { font-weight: 800; font-size: .98rem; }
+.falt__hjalp { font-weight: 600; color: var(--kakao-mjuk); font-size: .88rem; }
+.falt input, .falt select, .falt textarea {
+  width: 100%;
+  padding: .75rem .9rem;
+  border: 2px solid var(--kakao);
+  border-radius: .8rem;
+  background: var(--gradde);
+  color: var(--kakao);
+  font: 600 1rem/1.4 var(--font-brod);
+  transition: background-color .15s, box-shadow .15s;
+}
+.falt textarea { min-height: 9rem; resize: vertical; }
+.falt input:focus, .falt select:focus, .falt textarea:focus {
+  outline: none;
+  background: var(--papper);
+  box-shadow: 0 0 0 3px var(--forgatmigej), 3px 4px 0 var(--kakao);
+}
+.falt select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%233B2A25' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .8rem center;
+  background-size: 1.2rem;
+  padding-right: 2.5rem;
+}
+.falt input:user-invalid, .falt textarea:user-invalid, .falt select:user-invalid { border-color: var(--paprika); background-color: var(--rosa-ljus); }
+.kryss { display: flex; gap: .6rem; align-items: flex-start; font-weight: 600; margin-bottom: 1.4rem; }
+.kryss input { width: 1.2rem; height: 1.2rem; margin-top: .2rem; accent-color: var(--paprika); flex: none; }
+.honung { position: absolute; left: -9999px; }
+.formular__status {
+  margin: 1rem 0 0;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+}
+.formular__status:empty { display: none; }
+.formular__status[data-typ="ok"] { background: var(--mint); border: 2px solid var(--kakao); }
+.formular__status[data-typ="fel"] { background: var(--rosa); border: 2px solid var(--paprika-djup); }
+.formular__status[data-typ="info"] { background: var(--forgatmigej-ljus); border: 2px solid var(--kakao); }
+.formular .knapp { width: 100%; }
+.formular .knapp[disabled] { opacity: .6; cursor: progress; }
+
+/* ---------- Länkar (Instagram-bio) ---------- */
+.sida-lankar { background-color: var(--forgatmigej-ljus); }
+.lankar {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 3rem;
+  text-align: center;
+}
+.lankar__avatar {
+  width: 10rem;
+  height: auto;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(4px 5px 0 var(--kakao));
+  rotate: -4deg;
+}
+.lankar h1 { font-size: 2.6rem; font-style: italic; margin-bottom: .2rem; }
+.lankar__titel { font: 600 1.5rem/1.2 var(--font-hand); color: var(--paprika-djup); margin-bottom: 2rem; }
+.lankar ul { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: 1rem; }
+.lankar .knapp { width: 100%; font-size: 1.1rem; }
+.lankar li:nth-child(even) .knapp { background: var(--papper); color: var(--kakao); }
+.lankar li:nth-child(even) .knapp:hover { background: var(--smor-ljus); }
+.lankar__liten { font-size: .95rem; color: var(--kakao-mjuk); }
+
+/* ---------- 404 ---------- */
+.fyrnollfyra {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 5rem) var(--gutter);
+  text-align: center;
+}
+.fyrnollfyra img { width: 11rem; margin: 0 auto 1rem; rotate: -8deg; }
+.fyrnollfyra .knapprad { justify-content: center; }
+
+/* ---------- Rörelse ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .band__spar { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .band__spar > span:nth-child(n + 11) { display: none; }
+}
+
+/* ---------- Utskrift (för recepten) ---------- */
+@media print {
+  body { background: none; font-size: 11pt; }
+  .markis, .sidhuvud, .sidfot, .brodsmula, .recept__verktyg, .skala, .bestall-cta, .recept__bild, .sprite { display: none !important; }
+  .recept__huvud { display: block; padding: 0; }
+  .recept__kropp { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; }
+  .ingredienser, .lapp { box-shadow: none; border-width: 1px; position: static; rotate: none; }
+  .ingredienser { background: none; border-top-width: 4px; }
+  .recept__fakta li { border-width: 1px; }
+  a { color: inherit; text-decoration: none; }
+}

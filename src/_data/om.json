@@ -1,0 +1,22 @@
+{
+  "_kommentar": "Innehåll till Om mig-sidan. Justera fritt!",
+  "facts": [
+    { "label": "Kommer från", "value": "Ungern" },
+    { "label": "Yrke", "value": "Konditor & bagare" },
+    { "label": "Favoritblomma", "value": "Förgätmigej" },
+    { "label": "Utanför köket", "value": "Målar och formar lufttorkande lera" },
+    { "label": "Drömmen", "value": "Att baka tårtor på beställning – på heltid" }
+  ],
+  "skills": [
+    "Klassiska ungerska tårtor",
+    "Franska entremets & moussetårtor",
+    "Choux – éclairs, Paris-Brest, Saint-Honoré",
+    "Macarons",
+    "Laminerade degar & croissanter",
+    "Surdegsbröd",
+    "Spegelglasyr & chokladtempering",
+    "Sockerblommor & modellering",
+    "Tårtdekor & spritsning",
+    "Bröllops- och våningstårtor"
+  ]
+}

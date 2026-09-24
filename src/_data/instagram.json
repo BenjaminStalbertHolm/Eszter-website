@@ -1,0 +1,11 @@
+{
+  "_kommentar": "Utvalda Instagram-inlägg som visas på startsidan. Spara en kvadratisk bild i src/assets/img/instagram/ och klistra in länken till inlägget. Utan bild visas en illustration.",
+  "posts": [
+    { "url": "", "image": "", "alt": "", "illustration": "dobos", "tone": "rosa" },
+    { "url": "", "image": "", "alt": "", "illustration": "macarons", "tone": "smor" },
+    { "url": "", "image": "", "alt": "", "illustration": "croissant", "tone": "mint" },
+    { "url": "", "image": "", "alt": "", "illustration": "entremet", "tone": "rosa" },
+    { "url": "", "image": "", "alt": "", "illustration": "tartelette", "tone": "forgatmigej" },
+    { "url": "", "image": "", "alt": "", "illustration": "saint-honore", "tone": "smor" }
+  ]
+}

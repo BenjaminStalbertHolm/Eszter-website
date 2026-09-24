@@ -1,0 +1,31 @@
+{%- set nav = [
+  { url: "/skapelser/", label: "Skapelser" },
+  { url: "/recept/", label: "Recept" },
+  { url: "/om/", label: "Om mig" }
+] %}
+<div class="markis" aria-hidden="true"></div>
+<header class="sidhuvud">
+  <div class="sidhuvud__inre">
+    <a class="logga" href="/" aria-label="{{ site.name }} – till startsidan">
+      <img class="logga__gas" src="/assets/img/gas-200.webp" width="64" height="100" alt="">
+      <span class="logga__text">
+        <span class="logga__namn">Eszter</span>
+        <span class="logga__titel">Konditor &amp; bagare</span>
+      </span>
+    </a>
+
+    <button class="meny-knapp" type="button" aria-expanded="false" aria-controls="huvudmeny">
+      <span class="meny-knapp__streck" aria-hidden="true"></span>
+      <span class="meny-knapp__text">Meny</span>
+    </button>
+
+    <nav class="huvudmeny" id="huvudmeny" aria-label="Huvudmeny">
+      <ul>
+        {%- for item in nav %}
+        <li><a href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+        <li><a class="knapp knapp--liten" href="/bestall/"{% if page.url.startsWith('/bestall/') %} aria-current="page"{% endif %}>Beställ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

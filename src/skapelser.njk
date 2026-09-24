@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+title: Skapelser
+description: Tårtor, bakelser och bröd av konditorn Eszter Kunszt – ungerska klassiker, franska finesser och bröllopstårtor med förgätmigej.
+permalink: /skapelser/
+---
+{% import "partials/macros.njk" as m %}
+
+<header class="sidrubrik">
+  <svg class="sidrubrik__blomma sidrubrik__blomma--1" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <svg class="sidrubrik__blomma sidrubrik__blomma--2" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <p class="handskrift sektion__kicker">galleriet</p>
+  <h1>Skapelser</h1>
+  <p class="ingress">Ett urval av det jag bakat – från sexlagers ungerska klassiker till bröllopstårtor med handgjorda blommor. Klicka på en bild för att se den större.</p>
+</header>
+
+<section class="sektion" style="padding-top: 0" aria-label="Galleri">
+  <ul class="filter" data-filter aria-label="Filtrera efter kategori">
+    <li><button type="button" data-kategori="alla" aria-pressed="true">Alla</button></li>
+    {%- for kategori in skapelser.categories %}
+    <li><button type="button" data-kategori="{{ kategori }}" aria-pressed="false">{{ kategori }}</button></li>
+    {%- endfor %}
+  </ul>
+
+  <div class="polaroider">
+    {%- for item in skapelser.items %}
+    {{ m.polaroid(item, 2) }}
+    {%- endfor %}
+  </div>
+
+  <p class="galleri-not">Är du nyfiken på fler? Galleriet växer hela tiden – och på <a href="https://www.instagram.com/{{ site.instagram }}/" rel="me noopener">Instagram</a> dyker det nya upp först.</p>
+</section>
+
+<dialog class="ljuslada" data-ljuslada aria-label="Förstorad bild">
+  <button class="ljuslada__stang" type="button" aria-label="Stäng">×</button>
+  <div class="ljuslada__bild"></div>
+  <div class="ljuslada__text"></div>
+</dialog>
+
+{% include "partials/bestall-cta.njk" %}

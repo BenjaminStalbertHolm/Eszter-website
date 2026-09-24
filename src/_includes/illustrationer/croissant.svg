@@ -1,0 +1,20 @@
+<svg class="illu" viewBox="0 0 400 320" aria-hidden="true" focusable="false">
+  <g filter="url(#skakig)" stroke="#3B2A25" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <ellipse cx="200" cy="280" rx="160" ry="22" fill="#E4EEFA"/>
+    <path d="M72,277 A128,12 0 0 0 328,277" fill="none" stroke="#9CC0EE" stroke-width="3"/>
+    <ellipse cx="204" cy="258" rx="130" ry="18" fill="#3B2A25" opacity=".12" stroke="none"/>
+    <ellipse cx="78" cy="236" rx="16" ry="24" transform="rotate(-58 78 236)" fill="#D08A3C"/>
+    <ellipse cx="322" cy="236" rx="16" ry="24" transform="rotate(58 322 236)" fill="#D08A3C"/>
+    <ellipse cx="108" cy="214" rx="26" ry="36" transform="rotate(-42 108 214)" fill="#DD9848"/>
+    <ellipse cx="292" cy="214" rx="26" ry="36" transform="rotate(42 292 214)" fill="#DD9848"/>
+    <ellipse cx="148" cy="196" rx="36" ry="48" transform="rotate(-22 148 196)" fill="#E3A04F"/>
+    <ellipse cx="252" cy="196" rx="36" ry="48" transform="rotate(22 252 196)" fill="#E3A04F"/>
+    <ellipse cx="200" cy="186" rx="46" ry="60" transform="rotate(0 200 186)" fill="#E9AE5E"/>
+    <path d="M172,150 C186,138 214,138 228,150" stroke="#F6CE86" stroke-width="6" fill="none"/>
+    <path d="M124,172 C132,162 146,158 156,160 M244,160 C256,158 268,162 276,172" stroke="#F6CE86" stroke-width="5" fill="none"/>
+    <path d="M178,200 C190,206 210,206 222,200 M130,206 C140,212 152,214 160,212 M240,212 C250,214 262,212 270,206" stroke="#B97A34" stroke-width="3" fill="none"/>
+    <path d="M170,110 C160,96 180,86 170,70 M200,104 C190,88 212,78 200,58 M230,110 C220,96 240,86 230,70" stroke="#3B2A25" stroke-width="3.5" fill="none" opacity=".45"/>
+    <path d="M300,262 L338,256 L346,266 L308,272 Z" fill="#F6D57A" stroke-width="3.5"/><path d="M300,262 L308,272 L308,278 L300,268 Z" fill="#EDC45A" stroke-width="3"/>
+  </g>
+</svg>

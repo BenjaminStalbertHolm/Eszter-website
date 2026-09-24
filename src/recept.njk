@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Recept
+description: Recept från Eszter Kunszts kök – ungerska klassiker som Dobostorta och Esterházy, franska bakverk och en och annan egen påhittad sak.
+permalink: /recept/
+---
+{% import "partials/macros.njk" as m %}
+
+<header class="sidrubrik">
+  <svg class="sidrubrik__blomma sidrubrik__blomma--1" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <svg class="sidrubrik__blomma sidrubrik__blomma--2" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <p class="handskrift sektion__kicker">från mitt kök till ditt</p>
+  <h1>Recept</h1>
+  <p class="ingress">Ungerska klassiker, franska favoriter och sådant jag själv hittat på. Alla recept är provbakade – många gånger. Gåsen har smakat av.</p>
+</header>
+
+<section class="receptsida" aria-label="Alla recept">
+  <div class="receptlista">
+    {%- for recept in collections.recept %}
+    {{ m.receptkort(recept, 2) }}
+    {%- endfor %}
+  </div>
+</section>
+
+{% include "partials/bestall-cta.njk" %}

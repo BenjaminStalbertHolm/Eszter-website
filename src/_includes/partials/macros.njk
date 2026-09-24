@@ -1,0 +1,48 @@
+{# Visar ett foto om det finns, annars den handritade illustrationen. #}
+{% macro bild(item, sizes="(min-width: 60rem) 33vw, 90vw") -%}
+  {%- if item.image -%}
+    <img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy" decoding="async">
+  {%- elif item.illustration -%}
+    {% include "illustrationer/" + item.illustration + ".svg" %}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro polaroid(item, headingLevel=3) -%}
+<figure class="polaroid ton-{{ item.tone or 'smor' }}" data-kategori="{{ item.category }}">
+  <span class="tejp" aria-hidden="true"></span>
+  <button class="polaroid__bild" type="button" data-lightbox aria-label="Visa större: {{ item.title }}">
+    {{ bild(item) }}
+  </button>
+  <figcaption>
+    <h{{ headingLevel }} class="polaroid__titel">{{ item.title }}</h{{ headingLevel }}>
+    <p class="polaroid__kategori">{{ item.category }}</p>
+    <p class="polaroid__text">{{ item.description }}</p>
+  </figcaption>
+</figure>
+{%- endmacro %}
+
+{% macro receptkort(recept, headingLevel=3) -%}
+<article class="receptkort">
+  <div class="receptkort__bild ton-{{ recept.data.tone or 'rosa' }}">
+    {{ bild(recept.data) }}
+  </div>
+  <div class="receptkort__text">
+    <p class="receptkort__ursprung">{{ recept.data.category }}{% if recept.data.origin %} · {{ recept.data.origin }}{% endif %}</p>
+    <h{{ headingLevel }} class="receptkort__titel"><a href="{{ recept.url }}">{{ recept.data.title }}</a></h{{ headingLevel }}>
+    <p>{{ recept.data.subtitle }}</p>
+    <p class="receptkort__meta">
+      <span><svg class="ikon" aria-hidden="true"><use href="#ikon-klocka"/></svg>{{ recept.data.time }}</span>
+      {{ svarighet(recept.data.difficulty) }}
+    </p>
+  </div>
+</article>
+{%- endmacro %}
+
+{% macro svarighet(niva) -%}
+{%- set etiketter = ["", "Lätt", "Medel", "Utmanande"] -%}
+<span class="svarighet" title="Svårighetsgrad: {{ etiketter[niva] }}">
+  <span class="visuellt-dold">Svårighetsgrad: {{ etiketter[niva] }}</span>
+  {%- for i in range(1, 4) %}<svg class="ikon{% if i > niva %} ikon--tom{% endif %}" aria-hidden="true"><use href="#visp"/></svg>{% endfor -%}
+  <span aria-hidden="true">{{ etiketter[niva] }}</span>
+</span>
+{%- endmacro %}

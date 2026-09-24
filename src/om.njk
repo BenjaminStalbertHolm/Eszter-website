@@ -1,0 +1,91 @@
+---
+layout: layouts/base.njk
+title: Om mig
+description: Eszter Kunszt är konditor och bagare från Ungern med kärlek till franskt konditori, måleri och lufttorkande lera.
+permalink: /om/
+---
+<section class="om-hero" aria-labelledby="om-titel">
+  <div>
+    <p class="handskrift sektion__kicker"><span lang="hu">Szia!</span> Hej! <span lang="fr">Bonjour!</span></p>
+    <h1 id="om-titel">Jag heter Eszter och jag bakar <span class="klotter">konst</span>.</h1>
+    <p class="ingress">Konditor och bagare med ungerska rötter, en förkärlek för franskt konditori och mjöl nästan alltid någonstans i ansiktet.</p>
+    <div class="knapprad">
+      <a class="knapp" href="/bestall/">Beställ en tårta</a>
+      <a class="knapp knapp--sekundar" href="mailto:{{ site.email }}">Mejla mig</a>
+    </div>
+  </div>
+  <div class="om-teaser__ram">
+    <div class="oval-ram ton-rosa">
+      {%- if site.portrait %}
+      <img src="{{ site.portrait }}" alt="Porträtt av Eszter Kunszt">
+      {%- else %}
+      {% include "illustrationer/palett.svg" %}
+      {%- endif %}
+    </div>
+    <svg class="tulipan tulipan--vanster" aria-hidden="true"><use href="#tulipan"/></svg>
+    <svg class="tulipan tulipan--hoger" aria-hidden="true"><use href="#tulipan"/></svg>
+  </div>
+</section>
+
+<section class="sektion sektion--smor" aria-labelledby="rotter-rubrik">
+  <div class="tva-kolumner">
+    <div class="brodtext">
+      <p class="handskrift sektion__kicker">min historia</p>
+      <h2 id="rotter-rubrik">Från cukrászda till pâtisserie</h2>
+      <p>Jag kommer från Ungern, där konditoriet – <i lang="hu">cukrászdán</i> – är en självklar mötesplats. Där sitter man länge över en kopp kaffe och en bit Dobostorta, Rigó Jancsi eller Esterházy, och ingen tycker att det är konstigt att en tårta har sju lager.</p>
+      <p>Det franska konditoriet lärde mig älska precisionen: den perfekta glasyren, den krispiga smördegen, macaronen med exakt rätt fot. Mitt konditori är någonstans mittemellan – generöst som i Budapest, noggrant som i Paris, och alltid lite busigt.</p>
+      <p>Mitt mål är enkelt: att varje tårta ska vara något man minns. Och drömmen? Att få baka tårtor på beställning – på heltid.</p>
+    </div>
+    <div class="fakta-kort">
+      <span class="tejp" aria-hidden="true"></span>
+      <h2>Snabbfakta</h2>
+      <dl>
+        {%- for fakta in om.facts %}
+        <div><dt>{{ fakta.label }}</dt><dd>{{ fakta.value }}</dd></div>
+        {%- endfor %}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sektion" aria-labelledby="konst-rubrik">
+  <div class="sektion__huvud">
+    <p class="handskrift sektion__kicker">utanför köket</p>
+    <h2 id="konst-rubrik">Konst i alla former</h2>
+    <p class="sektion__ingress">För mig är en tårta och en målning samma sak: färg, form och en idé som ska bli verklighet med händerna. När ugnen är avstängd fortsätter jag skapa.</p>
+  </div>
+  <div class="konstkort">
+    <div>
+      <h3><svg aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-5 0-9 3.6-9 8 0 3.5 2.6 5 4.5 5 1.4 0 2 .9 2 2s.6 3 2.5 3c5 0 9-4 9-9s-4-9-9-9z"/><circle cx="8" cy="10" r="1.3" fill="#C8363D"/><circle cx="12" cy="7" r="1.3" fill="#F6D57A"/><circle cx="16" cy="10" r="1.3" fill="#9CC0EE"/></g></svg> Måleri</h3>
+      <p>Penslar, färger och skissblock. Många av mina tårtor föds som små målningar innan de hamnar i ugnen.</p>
+    </div>
+    <div>
+      <h3><svg aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10l1.5-7h-13z"/><path d="M8 13c0-3 1.8-5 4-5s4 2 4 5"/><path d="M12 8V4"/><circle cx="12" cy="3.5" r="1" fill="#9CC0EE"/></g></svg> Lufttorkande lera</h3>
+      <p>Små figurer, skålar och ibland en gås eller två. Samma fingertoppskänsla som när jag modellerar sockerblommor.</p>
+    </div>
+    <div>
+      <h3><svg aria-hidden="true"><use href="#forgatmigej"/></svg> Blommor &amp; natur</h3>
+      <p>Förgätmigej är min favoritblomma. Du hittar den på den här sidan, på mina tårtor och säkert i någon målning också.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sektion sektion--bla" aria-labelledby="kan-rubrik">
+  <div class="tva-kolumner">
+    <div>
+      <p class="handskrift sektion__kicker">för arbetsgivare &amp; samarbeten</p>
+      <h2 id="kan-rubrik">Det här gör jag gärna</h2>
+      <p>Söker du en konditor eller bagare till ditt team, ett pop up-samarbete eller någon som kan ta fram en helt ny bakelse? Hör av dig – jag berättar gärna mer om min erfarenhet.</p>
+      <div class="knapprad">
+        <a class="knapp" href="mailto:{{ site.email }}?subject=Samarbete"><svg class="ikon" aria-hidden="true"><use href="#ikon-mejl"/></svg> Kontakta mig</a>
+      </div>
+    </div>
+    <ul class="etiketter" aria-label="Kompetenser">
+      {%- for skill in om.skills %}
+      <li>{{ skill }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include "partials/bestall-cta.njk" %}

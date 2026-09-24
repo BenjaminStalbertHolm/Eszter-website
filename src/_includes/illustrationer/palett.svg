@@ -1,0 +1,19 @@
+<svg class="illu" viewBox="0 0 400 320" aria-hidden="true" focusable="false">
+  <g filter="url(#skakig)" stroke="#3B2A25" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <ellipse cx="206" cy="278" rx="140" ry="16" fill="#3B2A25" opacity=".12" stroke="none"/>
+    <path d="M70,170 C60,110 130,62 214,64 C298,66 352,116 344,176 C338,222 300,260 238,268 C200,272 196,244 214,226 C232,208 214,190 190,200 C164,212 150,248 114,244 C84,240 74,206 70,170 Z" fill="#F3DDB6"/>
+    <ellipse cx="136" cy="196" rx="16" ry="12" fill="#FBF3E4"/>
+    <path d="M112,118 C110,104 132,98 142,108 C150,116 142,132 128,131 C118,130 113,126 112,118 Z" fill="#C8363D" stroke-width="3.5"/>
+    <path d="M162,94 C160,80 182,74 192,84 C200,92 192,108 178,107 C168,106 163,102 162,94 Z" fill="#F0913A" stroke-width="3.5"/>
+    <path d="M218,90 C216,76 238,70 248,80 C256,88 248,104 234,103 C224,102 219,98 218,90 Z" fill="#F6D57A" stroke-width="3.5"/>
+    <path d="M270,108 C268,94 290,88 300,98 C308,106 300,122 286,121 C276,120 271,116 270,108 Z" fill="#8FB56E" stroke-width="3.5"/>
+    <path d="M302,150 C300,136 322,130 332,140 C340,148 332,164 318,163 C308,162 303,158 302,150 Z" fill="#9CC0EE" stroke-width="3.5"/>
+    <path d="M290,204 C288,190 310,184 320,194 C328,202 320,218 306,217 C296,216 291,212 290,204 Z" fill="#F4B8BE" stroke-width="3.5"/>
+    <path d="M248,236 C246,222 268,216 278,226 C286,234 278,250 264,249 C254,248 249,244 248,236 Z" fill="#BFE3D0" stroke-width="3.5"/>
+    <path d="M96,300 L230,150" stroke-width="12"/><path d="M96,300 L230,150" stroke="#C8363D" stroke-width="6"/>
+    <path d="M226,146 L240,132 L250,142 L236,156 Z" fill="#D9D2C8" stroke-width="3.5"/>
+    <path d="M242,132 C252,114 268,104 278,100 C276,112 268,130 250,142 Z" fill="#6B4232" stroke-width="3.5"/>
+    <path d="M262,114 C268,108 274,104 278,100 C276,106 272,112 266,118 Z" fill="#9CC0EE" stroke="none"/>
+  </g>
+</svg>

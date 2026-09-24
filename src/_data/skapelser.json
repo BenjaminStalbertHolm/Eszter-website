@@ -1,0 +1,86 @@
+{
+  "_kommentar": "Galleriet. Lägg till ett foto genom att spara bilden i src/assets/img/skapelser/ och fylla i 'image' (t.ex. '/assets/img/skapelser/dobos.webp') och 'alt'. Utan foto visas illustrationen. 'featured: true' visar skapelsen på startsidan.",
+  "categories": ["Tårtor", "Bröllop", "Bakelser", "Bröd & wienerbröd"],
+  "items": [
+    {
+      "title": "Dobostorta",
+      "category": "Tårtor",
+      "description": "Sex tunna sockerkaksbottnar, mörk chokladsmörkräm och ett knäckigt karamelltak – Budapests mest kända tårta sedan 1885.",
+      "illustration": "dobos",
+      "tone": "smor",
+      "featured": true,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Bröllopstårta med förgätmigej",
+      "category": "Bröllop",
+      "description": "Tre våningar vaniljtårta med hallon och mascarponekräm, dekorerad med handgjorda förgätmigej i sockerpasta.",
+      "illustration": "brollopstarta",
+      "tone": "forgatmigej",
+      "featured": true,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Saint-Honoré",
+      "category": "Bakelser",
+      "description": "Smördeg, karamelliserade petits choux och luftig vaniljgrädde spritsad med den klassiska Saint-Honoré-tyllen.",
+      "illustration": "saint-honore",
+      "tone": "rosa",
+      "featured": true,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Esterházy-tårta",
+      "category": "Tårtor",
+      "description": "Valnötsmaräng i fem lager, vaniljsmörkräm och det klassiska spindelnätet i choklad. Ett namne jag inte kunde låta bli.",
+      "illustration": "esterhazy",
+      "tone": "mint",
+      "featured": false,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Macarons i pastell",
+      "category": "Bakelser",
+      "description": "Hallon, pistage, citron och blåbärsviol – krispiga skal, sega mitten och fyllningar som smakar på riktigt.",
+      "illustration": "macarons",
+      "tone": "mint",
+      "featured": false,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Entremet med blank glasyr",
+      "category": "Bakelser",
+      "description": "Vit choklad, passionsfrukt och en spegelglasyr i förgätmigej-blått på en krispig sablébotten.",
+      "illustration": "entremet",
+      "tone": "smor",
+      "featured": false,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Tarte aux fraises",
+      "category": "Bakelser",
+      "description": "Mördegsskal, vaniljkräm och de allra första jordgubbarna för säsongen. Enkelt – om allt är perfekt.",
+      "illustration": "tartelette",
+      "tone": "rosa",
+      "featured": false,
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Croissanter",
+      "category": "Bröd & wienerbröd",
+      "description": "Laminerad deg med 27 lager smör, jäst över natten. Frukostens absoluta höjdpunkt.",
+      "illustration": "croissant",
+      "tone": "forgatmigej",
+      "featured": false,
+      "image": "",
+      "alt": ""
+    }
+  ]
+}

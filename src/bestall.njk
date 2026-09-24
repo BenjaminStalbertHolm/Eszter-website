@@ -1,0 +1,129 @@
+---
+layout: layouts/base.njk
+title: Beställ
+description: Beställ en tårta, bröllopstårta eller bakelser av konditorn Eszter Kunszt. Berätta om din dröm så skissar jag ett förslag.
+permalink: /bestall/
+---
+{% import "partials/macros.njk" as m %}
+
+<header class="sidrubrik">
+  <svg class="sidrubrik__blomma sidrubrik__blomma--1" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <svg class="sidrubrik__blomma sidrubrik__blomma--2" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <p class="handskrift sektion__kicker">tårta på beställning</p>
+  <h1>Beställ din <span class="klotter">drömtårta</span></h1>
+  <p class="ingress">Allt jag bakar görs från grunden och för hand – och det roligaste jag vet är att förvandla din idé till något som både syns och smakar.</p>
+</header>
+
+<section class="sektion" style="padding-top: 1rem" aria-labelledby="erbjudande-rubrik">
+  <h2 id="erbjudande-rubrik" class="visuellt-dold">Det här bakar jag</h2>
+  <div class="erbjudanden">
+    {%- for erbjudande in bestallning.offers %}
+    <article class="erbjudande">
+      <div class="erbjudande__bild ton-{{ erbjudande.tone }}">{{ m.bild(erbjudande) }}</div>
+      <div class="erbjudande__text">
+        <h3>{{ erbjudande.title }}</h3>
+        <p>{{ erbjudande.text }}</p>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="sektion sektion--rosa" aria-label="Förfrågan och vanliga frågor">
+  <div class="bestall-layout">
+    <div>
+      <p class="handskrift sektion__kicker">bra att veta</p>
+      <h2>Vanliga frågor</h2>
+      <div class="fragor">
+        {%- for fraga in bestallning.faq %}
+        <details{% if loop.first %} open{% endif %}>
+          <summary>{{ fraga.q }}</summary>
+          <p>{{ fraga.a }}</p>
+        </details>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <form class="formular" id="forfragan" data-bestallning data-epost="{{ site.email }}"
+      {%- if site.orderFormEndpoint %} data-endpoint="{{ site.orderFormEndpoint }}" action="{{ site.orderFormEndpoint }}" method="post"
+      {%- else %} action="mailto:{{ site.email }}" method="post" enctype="text/plain"{% endif %}>
+      <h2>Skicka en förfrågan</h2>
+      <p class="falt__hjalp">Fält märkta med * behöver fyllas i. Förfrågan är inte bindande – jag återkommer med ett förslag och pris.</p>
+
+      <div class="falt-rad falt-rad--2">
+        <div class="falt">
+          <label for="namn">Namn *</label>
+          <input id="namn" name="namn" type="text" autocomplete="name" required>
+        </div>
+        <div class="falt">
+          <label for="epost">E-post *</label>
+          <input id="epost" name="epost" type="email" autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="falt-rad falt-rad--2">
+        <div class="falt">
+          <label for="telefon">Telefon</label>
+          <input id="telefon" name="telefon" type="tel" autocomplete="tel">
+        </div>
+        <div class="falt">
+          <label for="datum">Datum för kalaset *</label>
+          <input id="datum" name="datum" type="date" required>
+        </div>
+      </div>
+
+      <div class="falt-rad falt-rad--2">
+        <div class="falt">
+          <label for="tillfalle">Tillfälle</label>
+          <select id="tillfalle" name="tillfalle">
+            <option value="">Välj…</option>
+            <option>Födelsedag</option>
+            <option>Bröllop</option>
+            <option>Dop eller namngivning</option>
+            <option>Examen eller student</option>
+            <option>Företagsevent</option>
+            <option>Något annat</option>
+          </select>
+        </div>
+        <div class="falt">
+          <label for="gaster">Antal gäster</label>
+          <input id="gaster" name="gaster" type="number" min="1" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="falt">
+        <label for="smaker">Smaker du gillar</label>
+        <input id="smaker" name="smaker" type="text" placeholder="t.ex. choklad och hallon, pistage, vanilj">
+      </div>
+
+      <div class="falt">
+        <label for="allergier">Allergier eller specialkost</label>
+        <input id="allergier" name="allergier" type="text" placeholder="t.ex. glutenfritt, nötter">
+      </div>
+
+      <div class="falt">
+        <label for="beskrivning">Berätta om din drömtårta *</label>
+        <span class="falt__hjalp" id="beskrivning-hjalp">Färger, tema, stil, inspiration – allt hjälper. Skicka gärna bildlänkar också!</span>
+        <textarea id="beskrivning" name="beskrivning" aria-describedby="beskrivning-hjalp" required></textarea>
+      </div>
+
+      <div class="falt">
+        <label for="budget">Ungefärlig budget</label>
+        <input id="budget" name="budget" type="text" placeholder="Valfritt">
+      </div>
+
+      <div class="honung" aria-hidden="true">
+        <label for="_gotcha">Lämna tomt</label>
+        <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <label class="kryss">
+        <input type="checkbox" name="samtycke" value="ja" required>
+        <span>Jag godkänner att mina uppgifter sparas för att besvara min förfrågan. *</span>
+      </label>
+
+      <button class="knapp knapp--stor" type="submit">Skicka förfrågan</button>
+      <p class="formular__status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

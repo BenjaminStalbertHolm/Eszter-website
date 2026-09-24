@@ -1,0 +1,33 @@
+{
+  "name": "eszter-website",
+  "version": "1.0.0",
+  "description": "Eszter.se – hemsida för Eszter Kunszt, konditor och bagare",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenjaminStalbertHolm/Eszter-website.git"
+  },
+  "keywords": [],
+  "author": "Eszter Kunszt",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/BenjaminStalbertHolm/Eszter-website/issues"
+  },
+  "homepage": "https://github.com/BenjaminStalbertHolm/Eszter-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@fontsource/caveat": "^5.3.0",
+    "markdown-it": "^15.0.2"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}
