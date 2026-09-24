@@ -32,6 +32,9 @@
   <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script src="/assets/js/main.js" defer></script>
+  {%- for skript in scripts %}
+  <script src="{{ skript }}" defer></script>
+  {%- endfor %}
 
   <script type="application/ld+json">
   {{ {

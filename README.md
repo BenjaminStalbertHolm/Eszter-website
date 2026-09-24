@@ -34,6 +34,7 @@ Några uppgifter är platshållare och **måste** bytas ut:
   - `src/_data/skapelser.json`: exempel på skapelser som ska ersättas med Eszters egna
 - [ ] Läs igenom exempelrecepten i `src/recept/` och byt ut dem eller gör dem till dina egna
 - [ ] Bestäm hur beställningar ska tas emot (se "Beställningsformuläret")
+- [ ] **Sätt riktiga priser i tårtbyggaren**: alla priser i `src/_data/tartbyggare.json` är exempel
 
 ## Så uppdaterar du innehållet
 
@@ -46,6 +47,7 @@ Allt innehåll ligger i `src/`. Det mesta är vanliga textfiler som går att red
 | Instagram-rutorna på startsidan | `src/_data/instagram.json` |
 | Snabbfakta och kompetenser | `src/_data/om.json` |
 | Beställningssidans erbjudanden och vanliga frågor | `src/_data/bestallning.json` |
+| Tårtbyggarens byggblock och priser | `src/_data/tartbyggare.json` |
 | Recept | `src/recept/*.md` |
 | Sidornas texter | `src/index.njk`, `src/om.njk`, `src/bestall.njk` … |
 
@@ -95,9 +97,22 @@ Knapparna för ½×, 1× och 2× räknar om de ingredienser som börjar med ett 
 
 Tillgängliga illustrationer: `dobos`, `esterhazy`, `brollopstarta`, `macarons`, `saint-honore`, `tartelette`, `entremet`, `croissant`, `madeleines`, `palett`.
 
+## Tårtbyggaren (`/designa/`)
+
+Här kan besökare bygga en tårta av färdiga byggblock: storlek, smak, färg, stil, detaljer, något på toppen, text och specialkost. Tårtan ritas upp medan man väljer, och priset räknas ut direkt. När beställningen skickas följer en lista över valen, det uppskattade priset och en länk till just den designen med.
+
+**Ändra priser och alternativ** i `src/_data/tartbyggare.json`:
+
+- `price` är i kronor. Storleken är grundpriset, och allt annat läggs till.
+- `textPrice` är tillägget för text på tårtan, och `textMaxLength` styr hur lång texten får vara.
+- `default: true` markerar vad som är förvalt.
+- Ett alternativ går att ta bort eller byta namn på fritt. Nya alternativ räknas in i priset direkt. Förhandsbilden känner dock bara igen de id:n som finns från början (till exempel `droppglasyr` och `gasen`), så ett helt nytt id syns bara i priset och i beställningen, inte på bilden.
+
+Priset visas alltid som *uppskattat*. Eszter bekräftar det slutliga priset när hon svarar.
+
 ## Beställningsformuläret
 
-Utan inställningar öppnar formuläret besökarens mejlprogram med förfrågan ifylld, adresserad till `email` i `site.json`. Det fungerar direkt, men kräver att besökaren har ett mejlprogram.
+Det här gäller både förfrågan på Beställ-sidan och beställningen från tårtbyggaren. Utan inställningar öppnar formuläret besökarens mejlprogram med förfrågan ifylld, adresserad till `email` i `site.json`. Det fungerar direkt, men kräver att besökaren har ett mejlprogram.
 
 Bättre är att ta emot förfrågningarna direkt:
 
@@ -169,6 +184,7 @@ src/
   recept.njk       receptöversikten
   om.njk           om Eszter
   bestall.njk      beställning
+  designa.njk      tårtbyggaren (logiken finns i assets/js/tartbyggare.js)
   lankar.njk       länksida för Instagram-bion
 brand/             logga, Instagram-material och källfiler
 ```

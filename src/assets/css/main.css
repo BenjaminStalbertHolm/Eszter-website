@@ -141,6 +141,8 @@ body {
   overflow-x: hidden;
 }
 
+[hidden] { display: none !important; }
+
 img, svg { display: block; max-width: 100%; }
 img { height: auto; }
 
@@ -346,6 +348,7 @@ main:focus { outline: none; }
   margin: 0;
   padding: 0;
 }
+.huvudmeny a { white-space: nowrap; }
 .huvudmeny a:not(.knapp) {
   color: var(--kakao);
   font-weight: 800;
@@ -390,7 +393,7 @@ main:focus { outline: none; }
 .meny-knapp[aria-expanded="true"] .meny-knapp__streck::before { transform: translateY(6px) rotate(45deg); }
 .meny-knapp[aria-expanded="true"] .meny-knapp__streck::after { transform: translateY(-6px) rotate(-45deg); }
 
-@media (max-width: 47.99rem) {
+@media (max-width: 55.99rem) {
   .js .meny-knapp { display: inline-flex; }
   .js .huvudmeny {
     position: absolute;
@@ -1414,6 +1417,252 @@ main:focus { outline: none; }
 .fyrnollfyra img { width: 11rem; margin: 0 auto 1rem; rotate: -8deg; }
 .fyrnollfyra .knapprad { justify-content: center; }
 
+/* ---------- Tårtbyggaren ---------- */
+.byggare {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(3rem, 7vw, 5rem);
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 60rem) {
+  .byggare { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3.5rem; align-items: start; }
+  .byggare__visning { position: sticky; top: 1rem; }
+}
+
+.byggare__scen {
+  position: relative;
+  aspect-ratio: 400 / 370;
+  border: var(--kontur);
+  border-radius: 2rem;
+  box-shadow: var(--skugga);
+  overflow: hidden;
+  /* café: pastellvägg och en rutig duk längst ner */
+  background:
+    linear-gradient(to bottom, #0000 78%, var(--kakao) 78% calc(78% + 3px), #0000 calc(78% + 3px)),
+    repeating-linear-gradient(90deg, rgb(200 54 61 / .28) 0 16px, #0000 16px 32px) bottom / 100% 22% no-repeat,
+    repeating-linear-gradient(0deg, rgb(200 54 61 / .28) 0 16px, #0000 16px 32px) bottom / 100% 22% no-repeat,
+    linear-gradient(to bottom, var(--forgatmigej-ljus) 78%, var(--papper) 78%);
+}
+.byggare__scen::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 22%;
+  background: var(--strossel) 0 0 / 220px 220px;
+  opacity: .45;
+}
+.byggare__svg { position: relative; width: 100%; height: 100%; overflow: visible; }
+.byggare__scen.studsar .byggare__svg { animation: studs .35s ease-out; transform-origin: 50% 90%; }
+@keyframes studs {
+  40% { transform: scale(1.025, .975); }
+  70% { transform: scale(.99, 1.01); }
+}
+.byggare__text { font-family: var(--font-hand); font-weight: 700; }
+.byggare__siffra {
+  font: italic 800 78px/1 var(--font-rubrik);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  fill: var(--paprika);
+  stroke: var(--kakao);
+  stroke-width: 3.5px;
+  paint-order: stroke;
+}
+
+.byggare__under {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+}
+.byggare__knappar { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+.prislapp {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+  padding: .55rem 1.3rem .65rem 2.4rem;
+  background: var(--smor-ljus);
+  border: var(--kontur);
+  border-radius: .5rem 1rem 1rem .5rem;
+  box-shadow: 3px 4px 0 var(--kakao);
+  rotate: -3deg;
+}
+.prislapp::before {
+  content: "";
+  position: absolute;
+  left: .8rem;
+  top: 50%;
+  width: .7rem;
+  height: .7rem;
+  translate: 0 -50%;
+  border: 2px solid var(--kakao);
+  border-radius: 50%;
+  background: var(--gradde);
+}
+.prislapp__rubrik { font: 600 1.2rem/1 var(--font-hand); color: var(--paprika-djup); }
+.prislapp__summa {
+  font: 700 2.1rem/1.1 var(--font-rubrik);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.kvitto {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--papper);
+  border: 2px dashed rgb(59 42 37 / .35);
+  border-radius: 1rem;
+}
+.kvitto summary { font-weight: 800; cursor: pointer; }
+.kvitto ul { list-style: none; margin: .8rem 0 0; padding: 0; font-size: .95rem; }
+.kvitto li { display: flex; justify-content: space-between; gap: 1rem; padding: .3rem 0; border-bottom: 1px dotted rgb(59 42 37 / .3); }
+.kvitto li span:last-child { white-space: nowrap; font-weight: 700; }
+.kvitto .kvitto__total { border-bottom: 0; border-top: 2px solid var(--kakao); margin-top: .3rem; padding-top: .5rem; font-weight: 800; font-size: 1.05rem; }
+.kvitto__not { margin: .8rem 0 0; font-size: .88rem; color: var(--kakao-mjuk); }
+
+.byggblock { margin-bottom: 3rem; }
+.byggsteg { border: 0; margin: 0 0 2.5rem; padding: 0; min-width: 0; }
+.byggsteg legend {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 0;
+  font: 600 clamp(1.45rem, 3vw, 1.75rem)/1.1 var(--font-rubrik);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.byggsteg__nr {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: var(--kontur);
+  border-radius: 50%;
+  background: var(--smor);
+  font-size: 1.2rem;
+  rotate: -6deg;
+}
+.byggsteg:nth-of-type(4n + 2) .byggsteg__nr { background: var(--forgatmigej); rotate: 5deg; }
+.byggsteg:nth-of-type(4n + 3) .byggsteg__nr { background: var(--mint); }
+.byggsteg:nth-of-type(4n) .byggsteg__nr { background: var(--rosa); rotate: 8deg; }
+.byggsteg__tips { margin: .4rem 0 1rem; color: var(--kakao-mjuk); }
+.byggsteg__extra { margin-top: 1rem; max-width: 12rem; }
+
+.val {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  gap: .75rem;
+}
+.valkort {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: .8rem .95rem .85rem;
+  background: var(--papper);
+  border: 2px solid var(--kakao);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, background-color .15s;
+}
+.valkort input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.valkort:hover { transform: translateY(-2px) rotate(-.6deg); background: var(--gradde); }
+.valkort:has(input:focus-visible) { outline: 3px solid var(--forgatmigej-djup); outline-offset: 3px; }
+.valkort:has(input:checked) {
+  background: var(--smor-ljus);
+  box-shadow: 3px 4px 0 var(--kakao);
+  transform: translate(-1px, -2px);
+}
+.valkort:has(input:checked)::after {
+  content: "";
+  position: absolute;
+  top: -.55rem;
+  right: -.55rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--kakao);
+  border-radius: 50%;
+  background: var(--paprika) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23FFF9EF' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+.valkort__namn { font-weight: 800; line-height: 1.25; }
+.valkort__info { font-size: .86rem; color: var(--kakao-mjuk); line-height: 1.35; }
+.valkort__pris { margin-top: auto; padding-top: .35rem; font: 600 1.2rem/1 var(--font-hand); color: var(--paprika-djup); }
+
+.val--color { grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr)); }
+.val--color .valkort { align-items: center; text-align: center; padding: .7rem .4rem .6rem; }
+.valkort__farg {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-bottom: .35rem;
+  border: 2px solid var(--kakao);
+  border-radius: 50%;
+  background: var(--farg);
+  box-shadow: inset -4px -5px 0 rgb(59 42 37 / .12), inset 4px 4px 0 rgb(255 249 239 / .5);
+}
+.val--color .valkort__namn { font-size: .9rem; }
+
+.formular__sammanfattning {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.2rem;
+  background: var(--forgatmigej-ljus);
+  border-radius: 1rem;
+  border: 2px solid var(--kakao);
+}
+.formular__sammanfattning p { margin: 0; }
+.formular__sammanfattning .handskrift { font-size: 1.35rem; color: var(--paprika-djup); }
+
+.prisbar { display: none; }
+@media (max-width: 59.99rem) {
+  .js .prisbar {
+    position: fixed;
+    left: .75rem;
+    right: .75rem;
+    bottom: .75rem;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .4rem .6rem .4rem .4rem;
+    background: var(--papper);
+    border: var(--kontur);
+    border-radius: 1.25rem;
+    box-shadow: 3px 4px 0 var(--kakao);
+  }
+  .prisbar__tarta { width: 4rem; height: 3.7rem; flex: none; background: var(--forgatmigej-ljus); border-radius: .9rem; overflow: hidden; }
+  .prisbar__pris { display: flex; flex-direction: column; margin: 0 auto 0 0; line-height: 1.1; }
+  .prisbar__pris span { font: 600 1.05rem/1 var(--font-hand); color: var(--paprika-djup); }
+  .prisbar__pris strong { font: 700 1.45rem/1.1 var(--font-rubrik); }
+  .js .sida-designa .sidfot { padding-bottom: 5.5rem; }
+}
+
+.designa-genvag {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  width: min(56rem, 100% - 2 * var(--gutter));
+  margin: 0 auto 3rem;
+  padding: 1.5rem clamp(1.25rem, 4vw, 2.25rem);
+  background: var(--mint-ljus);
+  border: var(--kontur);
+  border-radius: 1.75rem;
+  box-shadow: var(--skugga);
+}
+@media (min-width: 44rem) {
+  .designa-genvag { grid-template-columns: 7rem 1fr auto; }
+}
+.designa-genvag .illu { width: 7rem; }
+.designa-genvag h2 { font-size: 1.6rem; margin-bottom: .25rem; }
+.designa-genvag p { margin: 0; color: var(--kakao-mjuk); }
+
 /* ---------- Rörelse ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1429,7 +1678,7 @@ main:focus { outline: none; }
 /* ---------- Utskrift (för recepten) ---------- */
 @media print {
   body { background: none; font-size: 11pt; }
-  .markis, .sidhuvud, .sidfot, .brodsmula, .recept__verktyg, .skala, .bestall-cta, .recept__bild, .sprite { display: none !important; }
+  .markis, .sidhuvud, .sidfot, .prisbar, .brodsmula, .recept__verktyg, .skala, .bestall-cta, .recept__bild, .sprite { display: none !important; }
   .recept__huvud { display: block; padding: 0; }
   .recept__kropp { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; }
   .ingredienser, .lapp { box-shadow: none; border-width: 1px; position: static; rotate: none; }

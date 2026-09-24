@@ -1,0 +1,150 @@
+---
+layout: layouts/base.njk
+title: Designa din tårta
+description: Bygg din egen tårta hos Eszter – välj storlek, smak, färg, detaljer och text och se priset direkt. Enkelt att beställa.
+permalink: /designa/
+bodyClass: sida-designa
+scripts:
+  - /assets/js/tartbyggare.js
+---
+<header class="sidrubrik">
+  <svg class="sidrubrik__blomma sidrubrik__blomma--1" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <svg class="sidrubrik__blomma sidrubrik__blomma--2" aria-hidden="true"><use href="#forgatmigej"/></svg>
+  <p class="handskrift sektion__kicker">tårtbyggaren</p>
+  <h1>Designa din <span class="klotter">egen</span> tårta</h1>
+  <p class="ingress">Välj storlek, smak, färg och detaljer – bit för bit, som byggklossar. Du ser tårtan växa fram och priset direkt. Vill du ha något helt personligt? Skicka en <a href="/bestall/">fri förfrågan</a> i stället.</p>
+</header>
+
+<noscript>
+  <p class="galleri-not" style="margin-top:0">Tårtbyggaren behöver JavaScript. Du kan alltid skicka en <a href="/bestall/">vanlig förfrågan</a> i stället!</p>
+</noscript>
+
+<div class="byggare">
+  <div class="byggare__visning">
+    <div class="byggare__scen" data-forhandsvisning aria-hidden="true"></div>
+    <p class="visuellt-dold" data-beskrivning aria-live="polite"></p>
+
+    <div class="byggare__under">
+      <p class="prislapp">
+        <span class="prislapp__rubrik">Uppskattat pris</span>
+        <strong class="prislapp__summa" data-totalpris>–</strong>
+      </p>
+      <div class="byggare__knappar">
+        <button class="knapp knapp--liten knapp--sekundar" type="button" data-slumpa>Överraska mig!</button>
+        <button class="knapp knapp--liten knapp--sekundar" type="button" data-borja-om>Börja om</button>
+        <button class="knapp knapp--liten knapp--sekundar" type="button" data-kopiera>Kopiera länk</button>
+      </div>
+    </div>
+
+    <details class="kvitto">
+      <summary>Så räknas priset</summary>
+      <ul data-kvitto></ul>
+      <p class="kvitto__not">Priset är en uppskattning. Du får alltid ett bekräftat pris från mig innan beställningen är klar.</p>
+    </details>
+    <img hidden data-gasbild src="/assets/img/gas-560.webp" alt="">
+  </div>
+
+  <div class="byggare__val">
+    <form class="byggblock" id="tartbyggare" data-tartbyggare data-textpris="{{ tartbyggare.textPrice }}">
+      {%- for steg in tartbyggare.steps %}
+      {%- set grundpris = loop.first %}
+      <fieldset class="byggsteg" id="steg-{{ steg.id }}" data-steg="{{ steg.short or steg.title }}">
+        <legend><span class="byggsteg__nr" aria-hidden="true">{{ loop.index }}</span> {{ steg.title }}</legend>
+        <p class="byggsteg__tips">{{ steg.hint }}</p>
+
+        {%- if steg.type == "text" %}
+        <div class="falt">
+          <label for="tarttext">Text på tårtan <span class="falt__hjalp">(+{{ tartbyggare.textPrice | kr }}, högst {{ tartbyggare.textMaxLength }} tecken)</span></label>
+          <input id="tarttext" name="text" type="text" maxlength="{{ tartbyggare.textMaxLength }}" autocomplete="off" placeholder="t.ex. Grattis Anna!">
+          <span class="falt__hjalp" data-teckenraknare aria-live="polite">0 / {{ tartbyggare.textMaxLength }}</span>
+        </div>
+        {%- else %}
+        <div class="val val--{{ steg.type }}">
+          {%- for val in steg.options %}
+          <label class="valkort">
+            <input type="{{ 'checkbox' if steg.type == 'checkbox' else 'radio' }}" name="{{ steg.id }}" value="{{ val.id }}"
+              data-pris="{{ val.price or 0 }}" data-etikett="{{ val.label }}{% if grundpris and val.info %} ({{ val.info }}){% endif %}"
+              {%- if val.color %} data-farg="{{ val.color }}"{% endif %}{% if val.default %} checked{% endif %}>
+            {%- if steg.type == "color" %}
+            <span class="valkort__farg" style="--farg: {{ val.color }}" aria-hidden="true"></span>
+            {%- endif %}
+            <span class="valkort__namn">{{ val.label }}</span>
+            {%- if val.info %}<span class="valkort__info">{{ val.info }}</span>{% endif %}
+            {%- if steg.type != "color" %}
+            <span class="valkort__pris">{% if grundpris %}{{ val.price | kr }}{% elif val.price %}+{{ val.price | kr }}{% else %}Ingår{% endif %}</span>
+            {%- endif %}
+          </label>
+          {%- endfor %}
+        </div>
+        {%- if steg.options | selectattr("needsNumber") | length %}
+        <div class="falt byggsteg__extra" data-siffrafalt hidden>
+          <label for="tartsiffra">Vilken siffra?</label>
+          <input id="tartsiffra" name="siffra" type="number" min="0" max="120" value="1" inputmode="numeric">
+        </div>
+        {%- endif %}
+        {%- endif %}
+      </fieldset>
+      {%- endfor %}
+    </form>
+
+    <form class="formular" id="bestall-tarta" data-bestallning data-epost="{{ site.email }}"
+      {%- if site.orderFormEndpoint %} data-endpoint="{{ site.orderFormEndpoint }}" action="{{ site.orderFormEndpoint }}" method="post"
+      {%- else %} action="mailto:{{ site.email }}" method="post" enctype="text/plain"{% endif %}>
+      <h2>Skicka din beställning</h2>
+      <p class="falt__hjalp">Din tårta och det uppskattade priset följer med automatiskt. Jag hör av mig och bekräftar pris och upphämtning innan något är bindande.</p>
+
+      <div class="formular__sammanfattning">
+        <p class="handskrift">din tårta:</p>
+        <p data-sammanfattning></p>
+      </div>
+
+      <div class="falt-rad falt-rad--2">
+        <div class="falt">
+          <label for="t-namn">Namn *</label>
+          <input id="t-namn" name="namn" type="text" autocomplete="name" required>
+        </div>
+        <div class="falt">
+          <label for="t-epost">E-post *</label>
+          <input id="t-epost" name="epost" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="falt-rad falt-rad--2">
+        <div class="falt">
+          <label for="t-telefon">Telefon</label>
+          <input id="t-telefon" name="telefon" type="tel" autocomplete="tel">
+        </div>
+        <div class="falt">
+          <label for="t-datum">När behöver du tårtan? *</label>
+          <input id="t-datum" name="datum" type="date" required>
+        </div>
+      </div>
+      <div class="falt">
+        <label for="t-ovrigt">Något mer jag borde veta?</label>
+        <textarea id="t-ovrigt" name="ovrigt" placeholder="Allergier, önskemål, en bild du gillar …"></textarea>
+      </div>
+
+      <input type="hidden" name="design" data-falt-design>
+      <input type="hidden" name="pris" data-falt-pris>
+      <input type="hidden" name="lank" data-falt-lank>
+
+      <div class="honung" aria-hidden="true">
+        <label for="t-gotcha">Lämna tomt</label>
+        <input id="t-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <label class="kryss">
+        <input type="checkbox" name="samtycke" value="ja" required>
+        <span>Jag godkänner att mina uppgifter sparas för att hantera min beställning. *</span>
+      </label>
+
+      <button class="knapp knapp--stor" type="submit">Skicka beställningen · <span data-totalpris>–</span></button>
+      <p class="formular__status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<div class="prisbar" data-prisbar>
+  <div class="prisbar__tarta" data-forhandsvisning data-mini aria-hidden="true"></div>
+  <p class="prisbar__pris"><span>Uppskattat pris</span><strong data-totalpris>–</strong></p>
+  <a class="knapp knapp--liten" href="#bestall-tarta">Beställ</a>
+</div>

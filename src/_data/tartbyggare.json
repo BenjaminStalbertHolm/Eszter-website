@@ -1,0 +1,111 @@
+{
+  "_kommentar": "Byggblocken i tårtbyggaren (/designa/). ALLA PRISER ÄR EXEMPEL – ändra till Eszters riktiga priser. 'price' är i kronor; storleken är grundpriset och allt annat läggs till. Alternativ med ett nytt 'id' fungerar direkt i prisräkningen, men förhandsbilden känner bara igen de id:n som finns här.",
+  "textPrice": 50,
+  "textMaxLength": 24,
+  "steps": [
+    {
+      "id": "storlek",
+      "short": "Storlek",
+      "title": "Välj storlek",
+      "hint": "Grundpriset beror på hur många som ska äta.",
+      "type": "radio",
+      "options": [
+        { "id": "liten", "label": "Liten", "info": "6–8 bitar · Ø 15 cm", "price": 450 },
+        { "id": "mellan", "label": "Mellan", "info": "10–12 bitar · Ø 18 cm", "price": 650, "default": true },
+        { "id": "stor", "label": "Stor", "info": "16–20 bitar · Ø 22 cm", "price": 895 },
+        { "id": "vaningar", "label": "Två våningar", "info": "25–30 bitar", "price": 1450 }
+      ]
+    },
+    {
+      "id": "smak",
+      "short": "Smak",
+      "title": "Välj smak",
+      "hint": "Bottnar, fyllning och kräm – allt görs från grunden.",
+      "type": "radio",
+      "options": [
+        { "id": "vanilj-hallon", "label": "Vanilj & hallon", "info": "Vaniljbotten, hallon och mascarponekräm", "price": 0, "default": true },
+        { "id": "choklad-hallon", "label": "Choklad & hallon", "info": "Chokladbotten, hallon och mörk ganache", "price": 0 },
+        { "id": "citron-blabar", "label": "Citron & blåbär", "info": "Citronbotten, blåbär och lemon curd", "price": 0 },
+        { "id": "pistage-korsbar", "label": "Pistage & körsbär", "info": "Pistagebotten och syrliga körsbär", "price": 75 },
+        { "id": "dobos", "label": "Dobos", "info": "Chokladsmörkräm och krispig karamell", "price": 100 }
+      ]
+    },
+    {
+      "id": "farg",
+      "short": "Färg",
+      "title": "Välj färg",
+      "hint": "Färgen på krämen utanpå tårtan.",
+      "type": "color",
+      "options": [
+        { "id": "gradde", "label": "Gräddvit", "color": "#FFF4E4", "price": 0, "default": true },
+        { "id": "rosa", "label": "Rosa", "color": "#F6C4C6", "price": 0 },
+        { "id": "forgatmigej", "label": "Förgätmigej", "color": "#B9D2F4", "price": 0 },
+        { "id": "mint", "label": "Mint", "color": "#BFE3D0", "price": 0 },
+        { "id": "smor", "label": "Smörgul", "color": "#F8DE93", "price": 0 },
+        { "id": "lavendel", "label": "Lavendel", "color": "#D9CCEF", "price": 0 },
+        { "id": "choklad", "label": "Choklad", "color": "#7A4D3A", "price": 0 }
+      ]
+    },
+    {
+      "id": "yta",
+      "short": "Stil",
+      "title": "Välj stil",
+      "hint": "Hur krämen ska se ut på utsidan.",
+      "type": "radio",
+      "options": [
+        { "id": "slat", "label": "Slät", "info": "Klassisk, blank och ren", "price": 0, "default": true },
+        { "id": "naked", "label": "Naked cake", "info": "Bottnarna skymtar fram", "price": 0 },
+        { "id": "ombre", "label": "Ombré", "info": "Tonar från ljust till mörkt", "price": 75 },
+        { "id": "vintage", "label": "Vintage", "info": "Girlanger och pärlor i 50-talsstil", "price": 150 }
+      ]
+    },
+    {
+      "id": "detaljer",
+      "short": "Detalj",
+      "title": "Lägg till detaljer",
+      "hint": "Välj så många du vill – eller inga alls.",
+      "type": "checkbox",
+      "options": [
+        { "id": "droppglasyr", "label": "Droppglasyr", "info": "Choklad som rinner över kanten", "price": 60 },
+        { "id": "bar", "label": "Färska bär", "info": "Hallon och blåbär på toppen", "price": 80 },
+        { "id": "forgatmigej", "label": "Förgätmigej", "info": "Handgjorda sockerblommor", "price": 120 },
+        { "id": "strossel", "label": "Strössel", "info": "Färgglatt och lite busigt", "price": 30 },
+        { "id": "macarons", "label": "Mini-macarons", "info": "Tre små macarons på toppen", "price": 120 },
+        { "id": "guldblad", "label": "Bladguld", "info": "Ätbart guld för extra glans", "price": 90 }
+      ]
+    },
+    {
+      "id": "topp",
+      "short": "Topp",
+      "title": "Välj något på toppen",
+      "hint": "Pricken över i:et.",
+      "type": "radio",
+      "options": [
+        { "id": "ingen", "label": "Ingenting", "info": "Enkelt och elegant", "price": 0, "default": true },
+        { "id": "hjarta", "label": "Hjärta", "info": "Ett rött hjärta på pinne", "price": 50 },
+        { "id": "siffra", "label": "Siffra", "info": "Perfekt till födelsedagen", "price": 50, "needsNumber": true },
+        { "id": "blommor", "label": "Sockerblommor", "info": "En bukett förgätmigej", "price": 80 },
+        { "id": "gasen", "label": "Konditorgåsen", "info": "Gåsen i sockerpasta – såklart", "price": 150 }
+      ]
+    },
+    {
+      "id": "text",
+      "short": "Text",
+      "title": "Skriv något på tårtan",
+      "hint": "Ett namn, en hälsning eller ett skämt. Lämna tomt om du inte vill ha text.",
+      "type": "text"
+    },
+    {
+      "id": "specialkost",
+      "short": "Specialkost",
+      "title": "Specialkost",
+      "hint": "Berätta gärna mer om allergier i meddelandet längre ner.",
+      "type": "checkbox",
+      "options": [
+        { "id": "glutenfri", "label": "Glutenfri", "price": 100 },
+        { "id": "laktosfri", "label": "Laktosfri", "price": 75 },
+        { "id": "notfri", "label": "Utan nötter", "price": 0 }
+      ]
+    }
+  ]
+}

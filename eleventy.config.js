@@ -49,6 +49,8 @@ export default function (eleventyConfig) {
   const datum = new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   eleventyConfig.addFilter("datum", (d) => datum.format(new Date(d)));
   eleventyConfig.addFilter("isoDatum", (d) => new Date(d).toISOString().slice(0, 10));
+  const kronor = new Intl.NumberFormat("sv-SE", { style: "currency", currency: "SEK", maximumFractionDigits: 0 });
+  eleventyConfig.addFilter("kr", (n) => kronor.format(Number(n) || 0));
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
   eleventyConfig.addFilter("where", (arr, key, value) => (arr || []).filter((item) => item[key] === value));
   eleventyConfig.addFilter("md", (text) => md.render(String(text ?? "")));

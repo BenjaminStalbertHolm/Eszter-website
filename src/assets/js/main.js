@@ -218,13 +218,17 @@ if (formular) {
       allergier: "Allergier",
       budget: "Budget",
       beskrivning: "Min drömtårta",
+      design: "Min tårta",
+      pris: "Uppskattat pris",
+      ovrigt: "Övrigt",
+      lank: "Se designen",
     };
     const rader = [];
     for (const [nyckel, etikett] of Object.entries(etiketter)) {
       const varde = String(data.get(nyckel) ?? "").trim();
-      if (varde) rader.push(`${etikett}: ${varde}`);
+      if (varde) rader.push(`${etikett}:${varde.includes("\n") ? "\n" : " "}${varde}`);
     }
-    const amne = `Tårtförfrågan${data.get("datum") ? " – " + data.get("datum") : ""}`;
+    const amne = `${data.get("design") ? "Tårtbeställning" : "Tårtförfrågan"}${data.get("datum") ? " – " + data.get("datum") : ""}`;
     const lank = `mailto:${formular.dataset.epost}?subject=${encodeURIComponent(amne)}&body=${encodeURIComponent(rader.join("\n\n"))}`;
     window.location.href = lank;
     visa("info", `Ditt mejlprogram öppnas med förfrågan ifylld – tryck bara på skicka. Händer inget? Mejla till ${formular.dataset.epost}.`);
